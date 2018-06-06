@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="" id="content">
+        <div id="fuck"></div>
+        <div id="description"></div>
+        <div id="format"></div>
+        <div id="image"></div>
+        <div id="prize1"></div>
+        <div id="prize2"></div>
+        <div id="prize3"></div>
+        <div id="regfee"></div>
+        <div id="time"></div>
+
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    var content = document.getElementById('content');
+    var fuck = document.getElementById('fuck');
+    var description = document.getElementById('description');
+    var format = document.getElementById('format');
+    var image = document.getElementById('image');
+    var prize1 = document.getElementById('prize1');
+    var prize2 = document.getElementById('prize2');
+    var prize3 = document.getElementById('prize3');
+    var regfee = document.getElementById('regfee');
+    var time = document.getElementById('time');
+    var config = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+
+    axios.get('https://api.dhwanicet.org/public/event',config)
+        .then(function (response) {
+            // content.innerHTML = response.data[0];
+            // var events = $.parseJSON(response.data);
+            console.log(response.data[0]);
+            $('#content').append(response.data[0] )
+            $.each(response.data[0], function( index, value) {
+                if(index == 'description') {
+                    description.innerHTML += value;
+                }
+                if(index == 'name') {
+                    fuck.innerHTML += value;
+                    console.log('name      yay'+value);
+                    
+                }
+                if(index == 'prize1') {
+                    prize1.innerHTML += value;
+                }
+                if(index == 'prize2') {
+                    prize2.innerHTML += value;
+                }
+                if(index == 'prize3') {
+                    prize3.innerHTML += value;
+                }
+                if(index == 'regFee') {
+                    regfee.innerHTML += value;
+                }
+                if(index == 'time') {
+                    time.innerHTML += value;
+                }
+                if(index == 'format') {
+                    format.innerHTML += value;
+                }
+                if(index == 'image') {
+                    image.innerHTML += '<img src='+value+' alt='+value+' width = "100" height = "200">'
+                }
+
+            })
+        });
+
+</script>

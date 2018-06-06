@@ -1,0 +1,151 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dhwani 18</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="./static/js/jscript.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/regstyle.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
+    <script src="static/js/jscript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyAcc11rgCRK5Ygd1WpFX556Sn36HGCI-hA",
+            authDomain: "dhwani18-8b03f.firebaseapp.com",
+            databaseURL: "https://dhwani18-8b03f.firebaseio.com",
+            projectId: "dhwani18-8b03f",
+            storageBucket: "dhwani18-8b03f.appspot.com",
+            messagingSenderId: "866486690145"
+          };
+          firebase.initializeApp(config);
+
+     </script>
+     <script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+
+
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var phoneNumber = user.phoneNumber;
+            var providerData = user.providerData;
+            user.getIdToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+                    
+             
+
+            axios.get('https://api.dhwanicet.org/public/student/'+email)
+                      .then(function(response){
+                        //console.log(response.data)
+                        document.getElementById('unique-id').innerHTML=response.data.id;
+                      });
+            document.getElementById("displayName").innerHTML=displayName;
+            document.getElementById("email").innerHTML=email;
+            document.getElementById('profilepic').setAttribute('src',photoURL);
+
+            
+           console.log(accessToken);
+            var config = {
+                 headers: {'Content-Type': 'application/x-www-form-urlencoded',
+               'x-auth-token' : accessToken}
+                };
+         
+
+            axios.get('https://api.dhwanicet.org/student/event',config)
+            .then(function(response){
+              var eventsJson = response.data;
+              
+              eventsJson.forEach(function(item){
+
+
+
+                 axios.get('https://api.dhwanicet.org/student/event/'+item.id,config)
+            .then(function(response){
+                if(response.data.paid===true)
+                  $("#reg_events").append("<div class=\"eachevent\"><p>"+item.name+"paid</p></div>");
+                else
+                  $("#reg_events").append("<div class=\"eachevent\"><p>"+item.name+"not paid</p></div>");
+            });
+
+
+              });
+
+            }).catch(function(error){
+              console.log(error);
+            });
+
+            }); 
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+
+              window.location.href = "./register.html";
+
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+
+      function signOut(){
+       firebase.auth().signOut().then(function() {
+          // Sign-out successful.
+           window.location.href = "./register.html";
+
+        }).catch(function(error) {
+          // An error happened.
+        });
+        
+       }
+
+    </script>
+
+</head>
+  <body>
+            <div id="container">
+                <div id="gradient">
+                    <div class="content">
+                      <div class="" id="account">
+                            <div class="section-account">
+                                <h2 style="text-align: center;">Dhwani Profile</h2>
+                                <p id="sign-in-status" style="text-align: center;font-size:20px;"></p>
+                                <p id="displayName" style="font-size:30px;text-align:center;margin:10px;"></p>
+                                <p id="email" style="font-size:20px;text-align:center;"></p>
+                                <img id="profilepic" style="width:200px;height:200px; display:block;margin-left:auto;margin-right:auto;">
+                                <p style="text-align:center;margin-top:5px;">Your DHWANI id:</p>
+                                <p id="unique-id" style=" text-align:center;"></p>
+                                <button style="margin-top:0px;" id="sign-out" onclick="signOut()" class="submitbtn"> SIGN OUT</button>
+                            </div>
+                            <div class="">
+                              <h4 id="" style="font-size:30px;text-align:center;">YOUR REGISTERED COMPETITIONS</h4>
+                              <div id="reg_events">
+                                
+                              </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>   
+  </body>

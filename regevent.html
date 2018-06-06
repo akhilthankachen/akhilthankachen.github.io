@@ -1,0 +1,180 @@
+<head>
+    <style>
+        @keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .animate-flicker {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            display: block;
+            -webkit-animation: flickerAnimation 3s infinite;
+            -moz-animation: flickerAnimation 3s infinite;
+            -o-animation: flickerAnimation 3s infinite;
+            animation: flickerAnimation 3s infinite;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dhwani 18</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+    </script>
+    <script src="./static/js/jscript.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+
+    <style type="text/css">
+        .input-box {
+            position: relative;
+        }
+
+        input {
+            display: block;
+            border: 1px solid #d7d6d6;
+            background: #fff;
+            padding: 10px 10px 10px 20px;
+            width: 195px;
+        }
+
+        .unit {
+            position: absolute;
+            display: block;
+            left: 5px;
+            top: 9px;
+            z-index: 9;
+        }
+    </style>
+
+
+</head>
+<script type="text/javascript">
+
+</script>
+
+<select id="dropdownlist">
+    <option>Select...</option>
+</select>
+<div id="inputArea"></div>
+<button onclick="group()">register</button>
+
+
+
+
+<script type="text/javascript">
+
+    var select = document.getElementById('dropdownlist');
+    for (var i = 0; i < 8; i++) {
+        select.options[select.options.length] = new Option(i + 1, i + 1);
+    }
+
+
+    $("#dropdownlist").change(function () {
+        var numInputs = $(this).val();
+        console.log("num inputs:" + numInputs)
+        $("#inputArea").empty();
+        for (var i = 0; i < numInputs - 1; i++)
+            $("#inputArea").append('<div>Dhwani Id of team member ' + (i + 2) + ' : <div class="input-box"><input name="inputs[]"/><span class="unit">D-</span></div></div>');
+    });
+    function group() {
+        console.log("inside group()")
+        var values = "";
+        $("input[name='inputs[]']").each(function () {
+            values += ($(this).val());
+            values += ',';
+        });
+        values = values.slice(0, -1);
+        console.log(values);
+        regEvent(values);
+    }
+
+</script>
+
+<script>
+    accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQzZTFiMGIyOTllNDIxZjU2ZWI1YTQ2NjhkMWNmMjNmNGFjNjk2NGMifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZGh3YW5pMTgtOGIwM2YiLCJuYW1lIjoiU2FuanUgUmF2ZWVuZHJhbiIsInBpY3R1cmUiOiJodHRwczovL3Njb250ZW50Lnh4LmZiY2RuLm5ldC92L3QxLjAtMS9wMTAweDEwMC8yODM3NzUyN181OTkzMDE3ODA0MTk4MTdfNjI1MDQyMDI5MTU4Nzk3NTE5NV9uLmpwZz9vaD00MGY0NWZlNjUxMjU2NjgzMTM2NDdhMWM2OTUxNWE5YSZvZT01QjFBNTc3MSIsImF1ZCI6ImRod2FuaTE4LThiMDNmIiwiYXV0aF90aW1lIjoxNTIwNDk2OTI5LCJ1c2VyX2lkIjoiZDVtMllHUG5lUGZieWpla3dVenE5a0lVM05yMSIsInN1YiI6ImQ1bTJZR1BuZVBmYnlqZWt3VXpxOWtJVTNOcjEiLCJpYXQiOjE1MjA1MDA3ODksImV4cCI6MTUyMDUwNDM4OSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJmYWNlYm9vay5jb20iOlsiNjAwNDkwMzkzNjM0Mjg5Il19LCJzaWduX2luX3Byb3ZpZGVyIjoiZmFjZWJvb2suY29tIn19.vT41tv0Bxn7cCNH923lokdg2Tv-8KIwIMc8__WqAo759i24daP4_KFfm87IpxrffsXWTopHHnXdHHfRwSlbppd96KIQ__KSztbvSnGrvTIUCFcfDt-PG0lysOkIaeJUR4zzeTD64JGN4X5aqHIKEmxq2TYxcvcq_ndxm6vo7ocn0rJeoXkIgy-LZnDnbF1RqO10dXx4g47_dTXfRg9uWEJPSgnrCWdQojlrZIHB6S-W1R9WMH4uHlVT0Yspy6lLGwh45nCMKxFObFuwVC832HRGjcpQ2ReVKDdnDbqvLoGAGodqrxgbd_vittXKkrh9Cm4DqNNNYKl4g3wGcecPxQg";
+
+    var config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': accessToken
+        }
+    };
+    console.log(accessToken);
+
+    axios.post('https://api.dhwanicet.org/student/login', {}, config)
+        .then(function (response) {
+
+     self.prefilledData =  {
+            eventcode: "dhwani-18-334330",
+            name:response.data.name,
+            emailId:response.data.emailId,
+            phone:response.data.phone,
+            ticketname1: "Demo Dance",
+            ticketvalue1: 1,
+        }
+
+      })
+
+   
+</script>
+<button onclick="popupWithAutoFill(prefilledData);" class="tsbutton">Register Now</button>
+
+<noscript id="tsNoJsMsg">Javascript on your browser is not enabled.</noscript>
+
+<script src="https://www.townscript.com/popup-widget/townscript-widget.nocache.js" type="text/javascript"></script>
