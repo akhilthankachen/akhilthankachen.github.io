@@ -1,0 +1,27 @@
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #count{
+        height: 20vw;
+        width: 20vw;
+        border-radius: 10vw;
+        top: -10vw;
+    }
+    h2{
+        font-size: 6.2vw;
+    }
+    .left {
+        left: 30%;
+    }
+    
+    .right {
+        left: 70%;
+    }
+    #arrowButtons{
+        bottom: 3%;
+    }
+    .arrowSize{
+        width: 30%;
+        height: 30%;
+    }
+}

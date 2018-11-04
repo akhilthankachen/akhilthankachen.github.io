@@ -1,785 +1,111 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-    <style>
-        @keyframes flickerAnimation {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-o-keyframes flickerAnimation {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-moz-keyframes flickerAnimation {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-webkit-keyframes flickerAnimation {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .animate-flicker {
-            width: 100%;
-            height: 100%;
-            -webkit-animation: flickerAnimation 3s infinite;
-            -moz-animation: flickerAnimation 3s infinite;
-            -o-animation: flickerAnimation 3s infinite;
-            animation: flickerAnimation 3s infinite;
-        }
-
-        #centerOverlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            margin: auto;
-            display: block;
-            width: 150px;
-            height: 150px;
-        }
-        
-        #bottom-container{
-            width: 400px;
-            height: 111px;
-            display: block;
-            margin: auto;
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-        }
-        .auto-width{
-            width: 33.3%;
-            height: 100%;
-            background-size: 90% auto;
-            background-position: center;
-            float: left;
-            background-repeat: no-repeat;
-        }
-        #img-one{
-            background-image: url('./static/img/collegebol.png');
-        }
-        #img-two{
-            background-image: url('./static/img/festflick.png');
-        }
-        #img-three{
-            background-image: url('./static/img/edinbox.png');
-        }
-        @media (max-width:768px) {
-            #bottom-container{
-                width: 90%;
-            }
-            #centerOverlay {
-                width: 100px;
-                height: 100px;
-            }
-        }
-    </style>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dhwani 18</title>
-    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
-    <link rel="manifest" href="./manifest.json">
-    <link rel="shortcut icon" type="image/png" href="./static/img/logo-orginal.png" />
-    <script>
-        //js service worker for adding to home screen prompt
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('./sw.js').then(function (registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function (err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-
-
-    </script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115438061-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-115438061-1');
-    </script>
-
-
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./static/css/style.css">
+<link rel="stylesheet" type="text/css" href="./static/css/styleMob.css">
+<title>College Magazine 2018</title>
+<style>
+    #loading{
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        display: block;
+        position: absolute;
+        bottom: 0%;
+        z-index: 9999;
+        border-radius: 0;
+        overflow: hidden;
+    }
+    #loadingGif{
+        position: absolute;
+        margin: auto;
+        display: block;
+        top: 0;right: 0;bottom: 0;left: 0;
+        height: 15%;
+        width: auto;
+        z-index: 10000;
+    }
+    #animationLoading{
+        position: absolute;
+        margin: auto;
+        display: none;
+        top: 0;right: 0;bottom: 0;left: 0;
+        width: 60%;
+        height: auto;
+        z-index: 10001;
+        border-radius: 10%;
+        opacity: 0;
+    }
+</style>
+<script>
+    var speed;
+    if( window.innerHeight <= 768 ){
+        speed = 400;
+    }else{
+        speed = 500;
+    }
+    window.onload = function (){
+        $("#animationLoading").css({"display":"block"});
+        $("#animationLoading").animate({"opacity":"1"});
+        setTimeout(()=>{
+            $("#loadingGif").css({"display":"none"});
+            $("#loading").animate({
+                "bottom":"100%",
+                "border-radius":"60%",
+            },speed);
+            $("#animationLoading").animate({
+                "opacity": "0"
+            },speed/3);
+        },10100);
+    };
+</script>
 </head>
-
 <body>
-    <div class="" id="overlay">
-        <div class="" id="centerOverlay">
-            <img src="./static/img/logo-orginal.png" alt="" class="animate-flicker">
-        </div>
-        <div class="" id="bottom-container">
-            <div class="auto-width" id="img-one">
-
-            </div>
-            <div class="auto-width" id="img-two">
-                
-            </div>
-            <div class="auto-width" id="img-three">
-                
-            </div>
-        </div>
+    <div id="loading">
+        <img src="./static/img/loading.gif" id="loadingGif">
+        <img src="./static/img/animationLoading.gif" id="animationLoading">
     </div>
-    <div id="container">
-        <div id="gradient">
-            <div class="content">
-                <div class="" id="status">
-                    <div class="" id="statusMsg">
-                        <h4 id="mSg">
-
-                        </h4>
-                    </div>
-                </div>
-                <div class="" id="menu"></div>
-                <div class="" id="main">
-                    <img src="./static/img/pattern-big.png" alt="" class="" id="outterPng">
-                    <img src="./static/img/pattern-small.png" alt="" class="" id="innerPng">
-                    <img src="./static/img/logo.png" alt="" class="" id="logoPng">
-                    <div class="" id="phone-view"></div>
-                    <div class="" id="social">
-                        <span class="" id="behemian">
-                        </span>
-                        <span class="user-counter">
-                            <span class="" id="split1">
-                                <img src="./static/img/people.png" alt="" class="" id="people">
-                            </span>
-                            <span class="" id="split2">
-                                <h1>3172</h1>
-                            </span>
-                        </span>
-                        <span class="couple">
-                            <div class="" id="fb"></div>
-                            <div class="" id="you"></div>
-                            <div class="" id="insta"></div>
-                        </span>
-                    </div>
-                    <div class="" id="bohemian-mob"></div>
-                </div>
-                <div class="" id="menu-content">
-                    <div class="" id="inside">
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="home"></div>
-                            </div>
-                        </div>
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="about"></div>
-                            </div>
-                        </div>
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="proshow"></div>
-                            </div>
-                        </div>
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="event"></div>
-                            </div>
-                        </div>
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="sponsors"></div>
-                            </div>
-                        </div>
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="contact"></div>
-                            </div>
-                        </div>
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="login"></div>
-                            </div>
-                        </div>
-                        <div class="menu-element">
-                            <div class="anti">
-                                <div class="" id="accomodation"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="" id="mob-inside">
-                        <div class="" id="mob-inside-content">
-                            <a id="home-mob">HOME</a>
-                            <a id="about-mob">ABOUT</a>
-                            <a id="proshow-mob">PROSHOWS</a>
-                            <a id="event-mob">EVENTS</a>
-                            <a id="sponsors-mob">SPONSORS</a>
-                            <a id="contact-mob">CONTACT US</a>
-                            <a id="accomodation-mob">ACCOMODATION</a>
-                        </div>
-                        <div class="" id="profile-bottom">
-                            <a id="login-mob">LOGIN/REGISTER</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="" id="about-content">
-                    <div class="section" id="secOne">
-                        <h2>ABOUT US</h2>
-                        <p>
-                            Dhwani, the cultural extravaganza of CET has always carved a very special niche for itself by being the most sought after
-                            cultural fest in the state. Be it the enthusiastic crowd or the scintillating performances, Dhwani
-                            never fails to make its mark. Nurturing creativity and appreciating the hidden talents, at the
-                            same time standing for a social cause, every Dhwani is a defining experience for the spectators
-                            as well as organizers.
-                            <br> Founded in 1939 during the reign of the Travancore King, Sree Chithira Thirunal Balarama Varma,
-                            College of Engineering, Trivandrum, commonly known as CET, is the first Engineering college in
-                            Kerala. Since inception, CET continues to maintain its excellence in technical education and
-                            research in the state. CET has been ranked 47 in Outlook Magazine's list of top 100 Engineering
-                            Colleges in india 2016. The immense pool of talents and an insiring vision to realize, the 78
-                            year long journey of CET was not limited in the technical arena alone. Apart from renowned engineers
-                            and bureaucrats, the college also gave birth to numerous musicians, artists and filmmakers who
-                            make their alma mater proud everyday.
-                        </p>
-                    </div>
-                    <div class="section" id="secTwo">
-                        <div class="" id="allMedia">
-                            <div class="eachBox">
-                                <img src="./static/img/facebook-allM.png" alt="">
-                                <h3>20K+</h3>
-                                <p>Facebook Likes</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/twitter-allM.png" alt="">
-                                <h3>1K+</h3>
-                                <p>Followers</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/instafram-allM.png" alt="">
-                                <h3>2K+</h3>
-                                <p>Followers</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/youtube-allM.png" alt="">
-                                <h3>100K+</h3>
-                                <p>Youtube Views</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/web-allM.png" alt="">
-                                <h3>50K+</h3>
-                                <p>Website Hits</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/foot-allM.png" alt="">
-                                <h3>20K+</h3>
-                                <p>Footfall of Dhwani</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/university-allM.png" alt="">
-                                <h3>150+</h3>
-                                <p>Colleges Participated</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/money-allM.png" alt="">
-                                <h3>1M+</h3>
-                                <p>Prizes Worth</p>
-                            </div>
-                            <div class="eachBox">
-                                <img src="./static/img/flag-allM.png" alt="">
-                                <h3>60+</h3>
-                                <p>Events Organized</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="" id="proshow-content">
-                    <div class="" id="centerComing">
-                    <div class="button-center">
-                            <button style="margin-top:50px; display:block; margin-left:auto; margin-right:auto;" id="proshow-link" class="submitbtn">
-                                Register</button>
-                    </div>
-                    </div>
-                    
-                </div>
-                <div class="" id="contact-content">
-                    <div class="section" id="secOneContact">
-                        <div class="secContentOne">
-                            <h2>CONTACT US</h2>
-                            <div class="smallBox">
-                                <img src="./static/img/facebook-allM.png" alt="" id="-fb">
-                            </div>
-                            <div class="smallBox">
-                                <img src="./static/img/twitter-allM.png" alt="" id="-twitter">
-                            </div>
-                            <div class="smallBox">
-                                <img src="./static/img/instafram-allM.png" alt="" id="contact-insta">
-                            </div>
-                            <div class="smallBox">
-                                <img src="./static/img/youtube-allM.png" alt="" id="contact-youtube">
-                            </div>
-                            <h3>Mail us at dhwanirelations@cet.ac.in</h3>
-
-                        </div>
-                    </div>
-                    <div class="section" id="secTwoContact">
-                        <div class="secContentTwo">
-                            <h4>CONTACT INFO</h4>
-                            <p>
-                                EVENT HEAD : Jithin Raj 8943900895
-                                <br> EVENT CONVENOR : Akshay Nand 8289822292
-                                <br> EVENT DIRECTOR : Shravan Kumar PS 9544000559
-                                <br> EVENT COORDINATOR : Akshay Kumar 9995029242
-                                <br> PROGRAMME CONVENOR : Sidharth Venu 9497899570
-                                <br> FINANCE CONVENOR : Anand Chandran 9656784726
-                                <br> SPONSORSHIP(1) : Rohith CK 9656338351
-                                <br> SPONSORSHIP(2) : Skanda Krishnan 8606018049
-                                <br> PUBLICITY : Shilpa 9400877083
-                                <br> ACCOMODATION : Akhil KJ 8281183949
-                                <br> MARKETING : Stejin Chakko 859406204
-                                <br>
-                                <br> FESTIVAL HEADS
-                                <br>
-                                <br> ANTARA - Music Festival : Sidharth 9496456290
-                                <br> DIONYSIA - Theatrical Festival : Afreed 9745255441
-                                <br> NADANTA - Dance Festival : Akshay 9995324585
-                                <br> CARPE DICTUM - Literary Festival : Soorya 9895449420
-                                <br> KHELOTSAV - Sports Festival : Hariprasad 9544997536
-                                <br> MISCELANEO - Miscellaneous : Nithin 8089651277
-                                <br>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="" id="login-content">
-                    <div class="" id="logContent">
-                        <div class="sectionReg" id="secOneReg">
-
-                        </div>
-                        <div class="sectionReg" id="secTwoReg">
-                            <div class="" id="regpage">
-                                <h4 id="registerhead">REGISTER</h4>
-                                <p id="login_failed" style="text-align:center;"></p>
-                                <button id="Fsign-in" class="loginBtn loginBtn--facebook" onclick="facebookSignIn()">Log in With Facebook</button>
-                                <button id="Gsign-in" class="loginBtn loginBtn--google" onclick="googleSignIn()">Log in With Google</button>
-                                <p id="logintext">After registering you get a unique ID number. You need this ID number for registering for
-                                    competitions,attending talk shows,proshows etc..</p>
-                            </div>
-                            <div id="register">
-                                <div class="" id="contentCenter">
-                                    <h5 id="yregcom">PLEASE FILL OUT THESE DETAILS</h5>
-
-
-                                    <div class="modal-body">
-                                        <p></p>
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="inputcollege">College</label>
-                                                <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement" required>
-                                                <datalist id="json-collegelist">
-                                                </datalist>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputphone">Phone</label>
-                                                <input type="text" class="formelement" id="inputphone" minlength="10" required>
-                                            </div>
-                                            <label>Sex</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="sex" id="inputsexmale" class="inputsex" value="male" checked> Male </input>
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="sex" id="inputsexfemale" value="female" class="inputsex" checked> Female
-                                                </label>
-                                            </div>
-                                            <div class="checkbox" style="display:none;">
-                                                <label>
-                                                    <input type="checkbox" id="inputacco" class=""> Accomodation Required
-                                                </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button style="" type="button" class="submitbtn" onclick="register()">
-                                            Register
-                                        </button>
-                                        <button style="" type="button" class="submitbtn" data-dismiss="modal" onclick="signOut()">
-                                            Close
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <label id="errorMessage" type="text">
-
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="" id="profile-content">
-                        <div class="" id="account">
-                            <div class="section">
-                                <h2 style="text-align: center;">Dhwani Profile</h2>
-                                <p id="sign-in-status" style="text-align: center;font-size:20px;"></p>
-                                <p id="displayName" style="font-size:30px;text-align:center;margin:10px;"></p>
-                                <p id="email" style="font-size:20px;text-align:center;"></p>
-                                <img id="profilepic" style="width:200px;height:200px; display:block;margin-left:auto;margin-right:auto;">
-                                <p style="text-align:center;margin-top:5px;">Your DHWANI id:</p>
-                                <p id="unique-id" style=" text-align:center;">D-</p>
-                                <div class="button-center">
-                                    <button style="margin-top:0px; display:block; margin-left:auto; margin-right:auto;" id="sign-out" onclick="signOut()" class="submitbtn">
-                                        SIGN OUT</button>
-                                </div>
-                            </div>
-                            <div class="section">
-                                <h4 id="" style="font-size:20px;text-align:center;">YOUR REGISTERED COMPETITIONS</h4>
-                                <div id="reg_events">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="" id="event-content">
-                    <div class="" id="event-page">
-                        <div class="event-element" id="workshops">
-                            <div class="anti-rotation">
-                                <div class="" id="workshops-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event-element" id="competitions">
-                            <div class="anti-rotation">
-                                <div class="" id="competitions-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event-element" id="informals">
-                            <div class="anti-rotation">
-
-                                <div class="" id="informals-inner">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="" id="workshops-content">
-                        <div class="close-all" id="" onclick="workshopAnimate(9999)">
-                            <div class="close-button" id="">
-
-                            </div>
-                        </div>
-                        <div class="wrapper-content">
-                            <div class="list" id="workshops-list">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="" id="competitions-content">
-                        <div class="close-all-competition" id="" onclick="competitionAnimate(9999)">
-                            <div class="close-button" id="">
-
-                            </div>
-                        </div>
-                        <div class="wrapper-content">
-                            <div class="list-competition" id="competitions-list">
-                                <h2 onclick="competitionAnimate(1)">ANTARA - Music Festival</h2>
-                                <h2 onclick="competitionAnimate(2)">DIONYSIA - Theatrical Festival</h2>
-                                <h2 onclick="competitionAnimate(3)">NADANTA - Dance Festival</h2>
-                                <h2 onclick="competitionAnimate(4)">CARPE DICTUM - Literary Festival</h2>
-                                <h2 onclick="competitionAnimate(5)">KHELOTSAV - Sports Festival</h2>
-                                <h2 onclick="competitionAnimate(6)">MISCELANEO - Miscellaneous</h2>
-                            </div>
-                        </div>
-                        <div class="worklist-content" id="comp1">
-                            <div class="close-all-ant" id="" onclick="antAnimate(9999)">
-                                <div class="close-button" id="">
-
-                                </div>
-                            </div>
-                            <div class="wrapper-content">
-                                <div class="list-ant" id="ant-list">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="worklist-content" id="comp2">
-                            <div class="close-all-dio" id="" onclick="dioAnimate(9999)">
-                                <div class="close-button" id="">
-
-                                </div>
-                            </div>
-                            <div class="wrapper-content">
-                                <div class="list-dio" id="dio-list">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="worklist-content" id="comp3">
-                            <div class="close-all-nad" id="" onclick="nadAnimate(9999)">
-                                <div class="close-button" id="">
-
-                                </div>
-                            </div>
-                            <div class="wrapper-content">
-                                <div class="list-nad" id="nad-list">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="worklist-content" id="comp4">
-                            <div class="close-all-car" id="" onclick="carAnimate(9999)">
-                                <div class="close-button" id="">
-
-                                </div>
-                            </div>
-                            <div class="wrapper-content">
-                                <div class="list-car" id="car-list">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="worklist-content" id="comp5">
-                            <div class="close-all-khe" id="" onclick="kheAnimate(9999)">
-                                <div class="close-button" id="">
-
-                                </div>
-                            </div>
-                            <div class="wrapper-content">
-                                <div class="list-khe" id="khe-list">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="worklist-content" id="comp6">
-                            <div class="close-all-mis" id="" onclick="misAnimate(9999)">
-                                <div class="close-button" id="">
-
-                                </div>
-                            </div>
-                            <div class="wrapper-content">
-                                <div class="list-mis" id="mis-list">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="" id="informals-content">
-                        <div class="wrapper-content">
-                            <div class="" id="center">
-                            <div class="button-center">
-                            <button style="margin-top:10px; display:block; margin-left:auto; margin-right:auto;" id="spotlight-link" class="submitbtn">
-                                Register</button>
-                             </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="" id="accomodation-content">
-                    <div class="acc-content">
-                        <h1>Accomodation</h1>
-                        <h2>Those Attending Dhwani'18 can avail accomodation by registering using the link below</h2>
-                        <h3>For queries contact</h3>
-                        <h3> Akhil KJ 8281183949</h3>
-                        <h3> Sarang U R 9633661217</h3>
-                        <div class="button-center">
-                            <button style="margin-top:0px; display:block; margin-left:auto; margin-right:auto;" id="accomodation-link" class="submitbtn">
-                                Register</button>
-                        </div>
-                    </div>
-
-                </div>
+    <div class="container">
+        <div class="pages">
+            <div id="one">
+                <img id = "imgOne" class = "pageImg">
             </div>
+            <div id="two">
+                <img id = "imgTwo" class = "pageImg">
+            </div>
+            <div id="three">
+                <img id = "imgThree" class = "pageImg">
+            </div>
+            <div id="four">
+                <img id = "imgFour" class = "pageImg">
+            </div>
+            <div id="five">
+                <img id = "imgFive" class = "pageImg">
+            </div>
+        </div>
+        <div id="arrowButtons">
+            <button class="arrow left" id="leftArrow">
+                <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
+                    <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
+                    45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                </svg>  
+            </button>
+            <button class="arrow right" id="rightArrow">
+                <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
+                <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
+                0.375,0.375 45.63,38.087 0.375,75.8 "/>
+            </svg>
+            </button>
+        </div>
+        <div id="count">
+            <h2 id="pageNumber">1</h2>
         </div>
     </div>
 </body>
 
-<script type="text/javascript">
-    // Get the <datalist> and <input> elements.
-    var collegeList = document.getElementById('json-collegelist');
-    var input = document.getElementById('selectedcollege');
-    var collegeId;
-
-    // Create a new XMLHttpRequest.
-
-    var request = new XMLHttpRequest();
-
-    var jsonOptionsTemp;
-
-    // Handle state changes for the request.
-    request.onreadystatechange = function (response) {
-        if (request.readyState === 4) {
-            if (request.status === 200) {
-                // Parse the JSON
-                var jsonOptions = JSON.parse(request.responseText);
-
-                jsonOptionsTemp = jsonOptions;
-                // Loop over the JSON array.
-                jsonOptions.forEach(function (item) {
-                    // Create a new <option> element.
-                    var option = document.createElement('option');
-                    // Set the value using the item in the JSON array.
-                    option.value = item.name;
-                    option.id = item.id;
-                    // Add the <option> element to the <datalist>.
-                    collegeList.appendChild(option);
-                });
-
-
-                // Update the placeholder text.
-                input.placeholder = "enter college name";
-            } else {
-                // An error occured :(
-                input.placeholder = "Couldn't load datalist options :(";
-            }
-        }
-    };
-
-    // Update the placeholder text.
-    input.placeholder = "Loading options...";
-
-    // Set up and make the request.
-    request.open('GET', 'https://api.dhwanicet.org/public/college', true);
-    request.send();
-
-
-    function register(input) {
-
-        //var collegeCheck = document.getElementById('newcollege').checked;
-        var inputCollege = document.getElementById('selectedcollege');
-        var inputTemp = inputCollege.value;
-        var phoneObj = document.getElementById('inputphone');
-        var phone = phoneObj.value;
-
-        if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
-            document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   " + phoneObj.validationMessage;
-        } else {
-
-
-
-            var accomodation;
-
-            var accoCheck = document.getElementById('inputacco').checked;
-            if (accoCheck === true)
-                accomodation = document.querySelector('input[name = "sex"]:checked').value;
-            else
-                accomodation = 'none';
-
-            var accoCheck = document.getElementById('inputacco').checked;
-            if (accoCheck === true)
-                accomodation = document.querySelector('input[name = "sex"]:checked').value;
-            else
-                accomodation = 'none'
-            console.log(collegeId);
-            console.log(phone);
-            console.log(accoCheck);
-            console.log(accomodation);
-
-            var accessToken = localStorage.getItem("accessToken");
-
-
-
-
-
-            var flag = false;
-
-            jsonOptionsTemp.forEach(function (item) {
-                if (inputTemp === item.name) {
-                    collegeId = item.id;
-                    flag = true;
-                }
-            });
-
-            if (flag === false) {
-                axios.put('https://api.dhwanicet.org/public/college', { 'name': inputTemp })
-                    .then(function (response) {
-
-                        collegeId = response.data.id;
-                        console.log(collegeId);
-
-                        regsiterAxios(accessToken, phone, accomodation, collegeId);
-                    });
-
-            }
-
-            else {
-
-                regsiterAxios(accessToken, phone, accomodation, collegeId);
-            }
-
-
-
-
-            initApp();
-        }
-
-    }
-
-    function regsiterAxios(accessToken, phone, accomodation, collegeId) {
-        var config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'x-auth-token': accessToken
-            }
-        };
-
-        axios.post('https://api.dhwanicet.org/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
-            .then(function (response) {
-                console.log(response);
-
-                console.log("registration completed");
-            });
-
-    }
-</script>
-<noscript id="tsNoJsMsg">Javascript on your browser is not enabled.</noscript>
-<script src="https://www.townscript.com/popup-widget/townscript-widget.nocache.js" type="text/javascript"></script>
-
-</html>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        axios.get('https://api.github.com/users/codeheaven-io');
-    </script>
-    <script src="./static/js/jscript.js"></script>
-
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="./static/js/content.js" type="text/javascript"></script>
+</html> 
