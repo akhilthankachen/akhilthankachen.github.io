@@ -73,7 +73,6 @@ function init(){
 
     }else{
         windowWidth = "small";
-        console.log("small");
         rightOnePos = ((96/100)*pages.width()) - widthPageThree;
         rightTwoPos = ((90/100)*pages.width()) - widthPageTwo;
         rightThreePos = 0;
@@ -122,7 +121,6 @@ function init(){
         "z-index":"66",
         "opacity":"0.7"
     });
-    $("#imgTwo").attr('src','./static/img/pages/magazine18-2.jpg');
     var pageThreeWidth = ((pageHeight * .35) * 2480) / 3508;
     widthPageThree = pageThreeWidth;
     $("#three").css({
@@ -140,8 +138,10 @@ function init(){
         "border-radius":"5%",
         "opacity":"0.4"
     });
-    $("#imgThree").attr('src','./static/img/pages/magazine18-3.jpg');
-
+    if(windowWidth == "full"){
+        $("#imgTwo").attr('src','./static/img/pages/magazine18-2.jpg');
+        $("#imgThree").attr('src','./static/img/pages/magazine18-3.jpg');
+    }
 }
 //function executes when dom is ready
 $( document ).ready(function() {
@@ -260,8 +260,9 @@ function animateOneToFive(id,order,imgId,count,backLoading){
 
         if(windowWidth == "full"){
             imgId.css({"display":"block"});
-            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
-            backLoading.css({"display":"none"});
+            imgId.load(function (){
+                backLoading.css({"display":"none"});
+            }).attr('src','./static/img/pages/magazine18-'+count+'.jpg');
         }
         id.css({"z-index":"33"});
 
@@ -284,8 +285,9 @@ function animateOneToFive(id,order,imgId,count,backLoading){
 
         if(windowWidth == "full"){
             imgId.css({"display":"block"});
-            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
-            backLoading.css({"display":"none"});
+            imgId.load(function (){
+                backLoading.css({"display":"none"});
+            }).attr('src','./static/img/pages/magazine18-'+count+'.jpg');
         }
         id.css({"z-index":"33"});
     }
@@ -338,9 +340,10 @@ function clickRightPrelim(){
 }
 
 function windowSmallControl(imgIdEnter,backLoadingEnter,count,imgIdLeave,backLoadingLeave){
-    imgIdEnter.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+    imgIdEnter.load(function (){
+        backLoadingEnter.css({"display":"none"});
+    }).attr('src','./static/img/pages/magazine18-'+count+'.jpg');
     imgIdEnter.css({"display":"block"});
-    backLoadingEnter.css({"display":"none"});
     
     imgIdLeave.attr('src','');
     imgIdLeave.css({"display":"none"});
