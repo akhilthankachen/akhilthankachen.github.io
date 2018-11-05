@@ -73,6 +73,7 @@ function init(){
 
     }else{
         windowWidth = "small";
+        console.log("small");
         rightOnePos = ((96/100)*pages.width()) - widthPageThree;
         rightTwoPos = ((90/100)*pages.width()) - widthPageTwo;
         rightThreePos = 0;
@@ -256,9 +257,12 @@ function animateOneToFive(id,order,imgId,count,backLoading){
             right: rightFivePos,
             left: leftFivePos
         },animationSpeed/2);
-        
-        imgId.css({"display":"block"});
-        imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+
+        if(windowWidth == "full"){
+            imgId.css({"display":"block"});
+            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+            backLoading.css({"display":"none"});
+        }
         id.css({"z-index":"33"});
 
     }else{
@@ -266,6 +270,7 @@ function animateOneToFive(id,order,imgId,count,backLoading){
         id.animate({
             opacity:"0"
         },animationSpeed/2);
+
 
         imgId.attr('src','');
         imgId.css({"display":"none"});
@@ -277,9 +282,11 @@ function animateOneToFive(id,order,imgId,count,backLoading){
             right: rightOnePos
         },animationSpeed/2);
 
-        imgId.css({"display":"block"});
-        imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
-        backLoading.css({"display":"none"});
+        if(windowWidth == "full"){
+            imgId.css({"display":"block"});
+            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+            backLoading.css({"display":"none"});
+        }
         id.css({"z-index":"33"});
     }
 }
@@ -330,6 +337,16 @@ function clickRightPrelim(){
     }
 }
 
+function windowSmallControl(imgIdEnter,backLoadingEnter,count,imgIdLeave,backLoadingLeave){
+    imgIdEnter.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+    imgIdEnter.css({"display":"block"});
+    backLoadingEnter.css({"display":"none"});
+    
+    imgIdLeave.attr('src','');
+    imgIdLeave.css({"display":"none"});
+    backLoadingLeave.css({"display":"block"});
+}
+
 function clickRightHandle(){
     var num = pageCount%5;
     if(num == 3){
@@ -338,30 +355,45 @@ function clickRightHandle(){
         animateThreeToTwo(three,1);
         animateTwoToOne(two,1);
         animateOneToFive(one,1,imgIdOne,pageCount+3,backLoadingOne);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdFour,backLoadingFour,pageCount,imgIdThree,backLoadingThree);
+        }
     }else if(num == 4){
         animateFiveToFour(one,1);
         animateFourToThree(five,1);
         animateThreeToTwo(four,1);
         animateTwoToOne(three,1);
         animateOneToFive(two,1,imgIdTwo,pageCount+3,backLoadingTwo);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdFive,backLoadingFive,pageCount,imgIdFour,backLoadingFour);
+        }
     }else if(num == 0){
         animateFiveToFour(two,1);
         animateFourToThree(one,1);
         animateThreeToTwo(five,1);
         animateTwoToOne(four,1);
         animateOneToFive(three,1,imgIdThree,pageCount+3,backLoadingThree);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdOne,backLoadingOne,pageCount,imgIdFive,backLoadingFive);
+        }
     }else if(num == 1){
         animateFiveToFour(three,1);
         animateFourToThree(two,1);
         animateThreeToTwo(one,1);
         animateTwoToOne(five,1);
         animateOneToFive(four,1,imgIdFour,pageCount+3,backLoadingFour);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdTwo,backLoadingTwo,pageCount,imgIdOne,backLoadingOne);
+        }
     }else if(num == 2){
         animateFiveToFour(four,1);
         animateFourToThree(three,1);
         animateThreeToTwo(two,1);
         animateTwoToOne(one,1);
         animateOneToFive(five,1,imgIdFive,pageCount+3,backLoadingFive);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdThree,backLoadingThree,pageCount,imgIdTwo,backLoadingTwo);
+        }
     }
     animatePageNumber();
 }
@@ -374,30 +406,45 @@ function clickLeftHandle(){
         animateThreeToTwo(two,0);
         animateTwoToOne(one,0);
         animateOneToFive(five,0,imgIdFive,pageCount-3,backLoadingFive);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdTwo,backLoadingTwo,pageCount,imgIdThree,backLoadingThree);
+        }
     }else if(numLeft == 4){
         animateFiveToFour(five,0);
         animateFourToThree(four,0);
         animateThreeToTwo(three,0);
         animateTwoToOne(two,0);
         animateOneToFive(one,0,imgIdOne,pageCount-3,backLoadingOne);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdThree,backLoadingThree,pageCount,imgIdFour,backLoadingFour);
+        }
     }else if(numLeft == 0){
         animateFiveToFour(one,0);
         animateFourToThree(five,0);
         animateThreeToTwo(four,0);
         animateTwoToOne(three,0);
         animateOneToFive(two,0,imgIdTwo,pageCount-3,backLoadingTwo);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdFour,backLoadingFour,pageCount,imgIdFive,backLoadingFive);
+        }
     }else if(numLeft == 1){
         animateFiveToFour(two,0);
         animateFourToThree(one,0);
         animateThreeToTwo(five,0);
         animateTwoToOne(four,0);
         animateOneToFive(three,0,imgIdThree,pageCount-3,backLoadingThree);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdFive,backLoadingFive,pageCount,imgIdOne,backLoadingOne);
+        }
     }else if(numLeft == 2){
         animateFiveToFour(three,0);
         animateFourToThree(two,0);
         animateThreeToTwo(one,0);
         animateTwoToOne(five,0);
         animateOneToFive(four,0,imgIdFour,pageCount-3,backLoadingFour);
+        if(windowWidth == "small"){
+            windowSmallControl(imgIdOne,backLoadingOne,pageCount,imgIdTwo,backLoadingTwo);
+        }
     }
 
     animatePageNumberLeft();
