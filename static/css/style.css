@@ -57,7 +57,17 @@ body{
     left: 0;right:0;
     bottom: 1.5vw;
 }
-
+.backLoading{
+    position: absolute;
+    margin: auto;
+    display: block;
+    top: 0;right: 0;bottom: 0;left: 0;
+    height: 15%;
+    width: auto;
+}
+.backWhite{
+    background-color: white;
+}
 
 
 

@@ -14,6 +14,11 @@ var imgIdThree = $("#imgThree");
 var imgIdFour = $("#imgFour");
 var imgIdFive = $("#imgFive");
 var pages = $(".pages");
+var backLoadingOne = $("#backLoadingOne");
+var backLoadingTwo = $("#backLoadingTwo");
+var backLoadingThree = $("#backLoadingThree");
+var backLoadingFour = $("#backLoadingFour");
+var backLoadingFive = $("#backLoadingFive");
 
 var widthPageThree = 0;
 var widthPageTwo = 0;
@@ -35,8 +40,13 @@ var windowWidth = "";
 
 //init all pages
 function init(){
-    $("#four").css({"display":"none"});
-    $("#five").css({"display":"none"});
+    four.css({"display":"none"});
+    five.css({"display":"none"});
+    backLoadingOne.css({"display":"none"});
+    backLoadingTwo.css({"display":"none"});
+    backLoadingThree.css({"display":"none"});
+    backLoadingFour.css({"display":"none"});
+    backLoadingFive.css({"display":"none"});
 
     var pageHeight = $(".pages").height();
     var pageWidth = ((pageHeight * 0.943) * 2480) / 3508;
@@ -230,32 +240,46 @@ function animateTwoToOne(id,order){
     }
 }
 
-function animateOneToFive(id,order,imgId,count){
+function animateOneToFive(id,order,imgId,count,backLoading){
     if(order == 1){
+        //animation first half
         id.animate({
             opacity:"0"
         },animationSpeed/2);
-        if(imgId != null){
-            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
-        }
+
+        imgId.attr('src','');
+        imgId.css({"display":"none"});
+        backLoading.css({"display":"block"});
+        //animation second half
         id.animate({
             opacity:"0.4",
             right: rightFivePos,
             left: leftFivePos
         },animationSpeed/2);
+        
+        imgId.css({"display":"block"});
+        imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
         id.css({"z-index":"33"});
+
     }else{
+        //animation first half
         id.animate({
             opacity:"0"
         },animationSpeed/2);
-        if(imgId != null){
-            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
-        }
+
+        imgId.attr('src','');
+        imgId.css({"display":"none"});
+        backLoading.css({"display":"block"});
+        //animation second half
         id.animate({
             opacity:"0.4",
             left: leftOnePos,
             right: rightOnePos
         },animationSpeed/2);
+
+        imgId.css({"display":"block"});
+        imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+        backLoading.css({"display":"none"});
         id.css({"z-index":"33"});
     }
 }
@@ -279,8 +303,7 @@ function clickRightPrelim(){
             "border-radius":"5%",
             "opacity":"0"
         });
-        $("#imgFour").attr('src','./static/img/pages/magazine18-4.jpg');
-        animateOneToFive(four,1);
+        animateOneToFive(four,1,imgIdFour,4,backLoadingFour);
         animatePageNumber();
     }else if( pageCount==2 ){
         animateTwoToOne(one,1);
@@ -302,8 +325,7 @@ function clickRightPrelim(){
             "border-radius":"5%",
             "opacity":"0"
         });
-        $("#imgFive").attr('src','./static/img/pages/magazine18-5.jpg');
-        animateOneToFive(five,1);
+        animateOneToFive(five,1,imgIdFive,5,backLoadingFive);
         animatePageNumber();
     }
 }
@@ -315,31 +337,31 @@ function clickRightHandle(){
         animateFourToThree(four,1);
         animateThreeToTwo(three,1);
         animateTwoToOne(two,1);
-        animateOneToFive(one,1,imgIdOne,pageCount+3);
+        animateOneToFive(one,1,imgIdOne,pageCount+3,backLoadingOne);
     }else if(num == 4){
         animateFiveToFour(one,1);
         animateFourToThree(five,1);
         animateThreeToTwo(four,1);
         animateTwoToOne(three,1);
-        animateOneToFive(two,1,imgIdTwo,pageCount+3);
+        animateOneToFive(two,1,imgIdTwo,pageCount+3,backLoadingTwo);
     }else if(num == 0){
         animateFiveToFour(two,1);
         animateFourToThree(one,1);
         animateThreeToTwo(five,1);
         animateTwoToOne(four,1);
-        animateOneToFive(three,1,imgIdThree,pageCount+3);
+        animateOneToFive(three,1,imgIdThree,pageCount+3,backLoadingThree);
     }else if(num == 1){
         animateFiveToFour(three,1);
         animateFourToThree(two,1);
         animateThreeToTwo(one,1);
         animateTwoToOne(five,1);
-        animateOneToFive(four,1,imgIdFour,pageCount+3);
+        animateOneToFive(four,1,imgIdFour,pageCount+3,backLoadingFour);
     }else if(num == 2){
         animateFiveToFour(four,1);
         animateFourToThree(three,1);
         animateThreeToTwo(two,1);
         animateTwoToOne(one,1);
-        animateOneToFive(five,1,imgIdFive,pageCount+3);
+        animateOneToFive(five,1,imgIdFive,pageCount+3,backLoadingFive);
     }
     animatePageNumber();
 }
@@ -351,31 +373,31 @@ function clickLeftHandle(){
         animateFourToThree(three,0);
         animateThreeToTwo(two,0);
         animateTwoToOne(one,0);
-        animateOneToFive(five,0,imgIdFive,pageCount-3);
+        animateOneToFive(five,0,imgIdFive,pageCount-3,backLoadingFive);
     }else if(numLeft == 4){
         animateFiveToFour(five,0);
         animateFourToThree(four,0);
         animateThreeToTwo(three,0);
         animateTwoToOne(two,0);
-        animateOneToFive(one,0,imgIdOne,pageCount-3);
+        animateOneToFive(one,0,imgIdOne,pageCount-3,backLoadingOne);
     }else if(numLeft == 0){
         animateFiveToFour(one,0);
         animateFourToThree(five,0);
         animateThreeToTwo(four,0);
         animateTwoToOne(three,0);
-        animateOneToFive(two,0,imgIdTwo,pageCount-3);
+        animateOneToFive(two,0,imgIdTwo,pageCount-3,backLoadingTwo);
     }else if(numLeft == 1){
         animateFiveToFour(two,0);
         animateFourToThree(one,0);
         animateThreeToTwo(five,0);
         animateTwoToOne(four,0);
-        animateOneToFive(three,0,imgIdThree,pageCount-3);
+        animateOneToFive(three,0,imgIdThree,pageCount-3,backLoadingThree);
     }else if(numLeft == 2){
         animateFiveToFour(three,0);
         animateFourToThree(two,0);
         animateThreeToTwo(one,0);
         animateTwoToOne(five,0);
-        animateOneToFive(four,0,imgIdFour,pageCount-3);
+        animateOneToFive(four,0,imgIdFour,pageCount-3,backLoadingFour);
     }
 
     animatePageNumberLeft();
