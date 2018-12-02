@@ -3,21 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 <link rel="stylesheet" type="text/css" href="./static/css/style.css">
 <link rel="stylesheet" type="text/css" href="./static/css/styleMob.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <title>College Magazine 2018</title>
 <style>
     #loading{
-        height: 100%;
-        width: 100%;
+        height: 100vw;
+        width: 100vw;
         background-color: white;
         display: block;
         position: absolute;
-        bottom: 0%;
+        top:0;left:0;right:0;bottom:0;
+        margin: auto;
         z-index: 9999;
         border-radius: 0;
         overflow: hidden;
+
     }
     #loadingGif{
         position: absolute;
@@ -33,7 +36,7 @@
         margin: auto;
         display: none;
         top: 0;right: 0;bottom: 0;left: 0;
-        width: 60%;
+        width: 60vw;
         height: auto;
         z-index: 10001;
         border-radius: 10%;
@@ -44,9 +47,14 @@
             width: 80%;
             height: auto;
         }
+        #loading{
+            height: 100%;
+            width: 100%;
+        }
     }
 </style>
 <script>
+    var totalAnimationLength = 1000;
     var speed;
     if( window.innerHeight <= 768 ){
         speed = 400;
@@ -54,18 +62,38 @@
         speed = 500;
     }
     window.onload = function (){
+        var height;
+        var bottom;
         $("#animationLoading").css({"display":"block"});
         $("#animationLoading").animate({"opacity":"1"});
         setTimeout(()=>{
+
             $("#loadingGif").css({"display":"none"});
-            $("#loading").animate({
-                "bottom":"100%",
-                "border-radius":"60%",
-            },speed);
+            if(speed == 400){
+                bottom = window.innerHeight + (10*(window.innerWidth/100));
+                $("#loading").animate({
+                "border-radius":"100%",
+                "height":"20vw",
+                "width":"20vw",
+                bottom
+                },speed);   
+            }else{
+                bottom = 96*(window.innerWidth/100);
+                $("#loading").animate({
+                "border-radius":"100%",
+                "height":"8vw",
+                "width":"8vw",
+                bottom
+                },speed);   
+            }
+
             $("#animationLoading").animate({
                 "opacity": "0"
             },speed/3);
-        },10100);
+        },totalAnimationLength);
+        setTimeout(()=>{
+            $("#loading").css({"display":"none"});
+        },speed+totalAnimationLength);
     };
 </script>
 </head>
@@ -74,27 +102,52 @@
         <img src="./static/img/loading.gif" id="loadingGif">
         <img src="./static/img/animationLoading.gif" id="animationLoading">
     </div>
-    <div class="container">
-        <div class="pages">
-            <div id="one" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingOne" class="backLoading">
-                <img id = "imgOne" class = "pageImg">
+    <div id="fullScreen">
+        <img src="./static/img/loading.gif" alt="" id="fullscreenLoading">
+        <div class="" id="imageHolder">
+            <img src="" alt="" id="fullscreenImage">
+        </div>
+    </div>
+    <div class="" id="full">
+        <div id="sidebar">
+
+        </div>
+        <div class="container">
+            <div class="pages">
+                <div id="one" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingOne" class="backLoading">
+                    <img id = "imgOne" class = "pageImg">
+                </div>
+                <div id="two" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingTwo" class="backLoading">
+                    <img id = "imgTwo" class = "pageImg">
+                </div>
+                <div id="three" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingThree" class="backLoading">
+                    <img id = "imgThree" class = "pageImg">
+                </div>
+                <div id="four" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingFour" class="backLoading">
+                    <img id = "imgFour" class = "pageImg">
+                </div>
+                <div id="five" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingFive" class="backLoading">
+                    <img id = "imgFive" class = "pageImg">
+                </div>
             </div>
-            <div id="two" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingTwo" class="backLoading">
-                <img id = "imgTwo" class = "pageImg">
+        </div>
+    </div>
+    <div id="bottomPanel">
+        <div id="zoomControls">
+            <div class="controlIcon">
+                <div id="leftZoom">
+                    <img src="./static/img/zoomUp.png" alt="" class="faviconStyle" id="leftZoomFav">
+                </div>
             </div>
-            <div id="three" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingThree" class="backLoading">
-                <img id = "imgThree" class = "pageImg">
-            </div>
-            <div id="four" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingFour" class="backLoading">
-                <img id = "imgFour" class = "pageImg">
-            </div>
-            <div id="five" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingFive" class="backLoading">
-                <img id = "imgFive" class = "pageImg">
+            <div class="controlIcon">
+                <div id="rightFull">
+                    <img src="./static/img/fullscreen.png" alt="" class="faviconStyle" id="rightFullFav">
+                </div>
             </div>
         </div>
         <div id="arrowButtons">
@@ -102,6 +155,8 @@
                 <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
                     <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
                     45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                </svg>  
+            </svg>  
                 </svg>  
             </button>
             <button class="arrow right" id="rightArrow">
@@ -111,10 +166,12 @@
             </svg>
             </button>
         </div>
-        <div id="count">
-            <h2 id="pageNumber">1</h2>
-        </div>
     </div>
+
+    <div id="count">
+        <h2 id="pageNumber">1</h2>
+    </div>
+
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
