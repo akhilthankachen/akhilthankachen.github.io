@@ -788,13 +788,13 @@ $( window ).on( "load", function() {
     function animateMenu(callback){
         if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
         if(toggle==false){
-            $("#menu").css("background-image","url('./static/img/close.png')");
+            $("#menu").css("background-image","url('./staticdhwani/img/close.png')");
             $(lastActive).animate( {"right":"100%"},anim);
             $("#menu-content").animate({"left":"0%"},anim);
             toggle = true;
             callback();
         }else{
-            $("#menu").css("background-image","url('./static/img/hamburger.png')");
+            $("#menu").css("background-image","url('./staticdhwani/img/hamburger.png')");
             $(lastActive).animate( {"right":"0%"},anim );
             $("#menu-content").animate({"left":"100%"},anim);
             toggle = false;
@@ -1309,9 +1309,9 @@ axios.get('https://api.dhwanicet.org/public/event',config)
         $('#workshops').css({"left":"0","right":"0","top":mobBalance,"width":"140px","height":"140px"});
         $('#competitions').css({"left":"0","right":"0","top":mobBalance + 145,"width":"140px","height":"140px"});
         $('#informals').css({"left":"0","right":"0","top":mobBalance + 290,"width":"140px","height":"140px"});
-        $('#workshops-inner').css({"background-image":"url(./static/img/workshops-hover.png)"});
-        $('#competitions-inner').css({"background-image":"url(./static/img/competitions-hover.png)"});
-        $('#informals-inner').css({"background-image":"url(./static/img/informals-hover.png)"});
+        $('#workshops-inner').css({"background-image":"url(./staticdhwani/img/workshops-hover.png)"});
+        $('#competitions-inner').css({"background-image":"url(./staticdhwani/img/competitions-hover.png)"});
+        $('#informals-inner').css({"background-image":"url(./staticdhwani/img/informals-hover.png)"});
         $('#workshops-content').css({"top":"100%","border-top":"3px solid white","border-top-left-radius":"20px","border-top-right-radius":"20px"});
         $('#competitions-content').css({"top":"100%","border-top":"3px solid white","border-top-left-radius":"20px","border-top-right-radius":"20px"});
         $('#informals-content').css({"top":"100%","border-top":"3px solid white","border-top-left-radius":"20px","border-top-right-radius":"20px"});
@@ -1332,7 +1332,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
             if(workshopsToggle == false){
                 $('#workshops').animate({"left":"5px","width":"100px","height":"100px"});
                 $('#workshops-content').animate({"left":"110px"});
-                $('#workshops-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                $('#workshops-inner').css({"background-image":"url(./staticdhwani/img/close-big.png)"});
                 setTimeout(displayWorkshop,0);
             }else{
                 $('#workshops').animate({"left":balance,"width":"300px","height":"300px"});
@@ -1344,12 +1344,12 @@ axios.get('https://api.dhwanicet.org/public/event',config)
             if(workshopsToggle == false){
                 $('#workshops').animate({"top":"5px","width":"50px","height":"50px"});
                 $('#workshops-content').animate({"top":"60px"});
-                $('#workshops-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                $('#workshops-inner').css({"background-image":"url(./staticdhwani/img/close-big.png)"});
                 setTimeout(displayWorkshop,0);
             }else{
                 $('#workshops').animate({"top":mobBalance,"width":"140px","height":"140px"});
                 $('#workshops-content').animate({"top":"100%"});
-                $('#workshops-inner').css({"background-image":"url(./static/img/workshops-hover.png)"});
+                $('#workshops-inner').css({"background-image":"url(./staticdhwani/img/workshops-hover.png)"});
                 setTimeout(displayWorkshop,400);
             }
         }
@@ -1370,7 +1370,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
             if(competitionsToggle == false){
                 $('#competitions').animate({"left":"5px","width":"100px","height":"100px"});
                 $('#competitions-content').animate({"left":"110px"});
-                $('#competitions-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                $('#competitions-inner').css({"background-image":"url(./staticdhwani/img/close-big.png)"});
                 setTimeout(displayCompetition,0);
             }else{
                 $('#competitions').animate({"left":balance+310,"width":"300px","height":"300px"});
@@ -1382,12 +1382,12 @@ axios.get('https://api.dhwanicet.org/public/event',config)
             if(competitionsToggle == false){
                 $('#competitions').animate({"top":"5px","width":"50px","height":"50px"});
                 $('#competitions-content').animate({"top":"60px"});
-                $('#competitions-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                $('#competitions-inner').css({"background-image":"url(./staticdhwani/img/close-big.png)"});
                 setTimeout(displayCompetition,0);
             }else{
                 $('#competitions').animate({"top":mobBalance+145,"width":"140px","height":"140px"});
                 $('#competitions-content').animate({"top":"100%"});
-                $('#competitions-inner').css({"background-image":"url(./static/img/competitions-hover.png)"});
+                $('#competitions-inner').css({"background-image":"url(./staticdhwani/img/competitions-hover.png)"});
                 setTimeout(displayCompetition,400);
             }
         }
@@ -1408,7 +1408,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
             if(informalsToggle == false){
                 $('#informals').animate({"left":"5px","width":"100px","height":"100px"});
                 $('#informals-content').animate({"left":"110px"});
-                $('#informals-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                $('#informals-inner').css({"background-image":"url(./staticdhwani/img/close-big.png)"});
                 setTimeout(displayInformal,0);
             }else{
                 $('#informals').animate({"left":balance+620,"width":"300px","height":"300px"});
@@ -1420,12 +1420,12 @@ axios.get('https://api.dhwanicet.org/public/event',config)
             if(informalsToggle == false){
                 $('#informals').animate({"top":"5px","width":"50px","height":"50px"});
                 $('#informals-content').animate({"top":"60px"});
-                $('#informals-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                $('#informals-inner').css({"background-image":"url(./staticdhwani/img/close-big.png)"});
                 setTimeout(displayInformal,0);
             }else{
                 $('#informals').animate({"top":mobBalance + 290,"width":"140px","height":"140px"});
                 $('#informals-content').animate({"top":"100%"});
-                $('#informals-inner').css({"background-image":"url(./static/img/informals-hover.png)"});
+                $('#informals-inner').css({"background-image":"url(./staticdhwani/img/informals-hover.png)"});
                 setTimeout(displayInformal,400);
             }
         }
