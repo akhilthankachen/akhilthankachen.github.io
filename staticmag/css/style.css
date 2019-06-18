@@ -1,0 +1,220 @@
+html, body {
+    margin: 0; 
+    padding: 0;
+    height: 100%; 
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: auto;
+}
+#fullscreen{
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: auto;
+}
+.container{
+    background-color: #D4DCA9;
+    background-image: linear-gradient(to bottom right, rgb(203, 214, 139), rgb(219, 173, 112));
+    height: 100vh;
+    width: 100vw;
+}
+.pages{
+    height: 70%;
+    width: 100%;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    left: 0;right: 0;bottom: 0;top: 0;
+}
+.pageImg{
+    height: 110%;
+    width: auto;
+    position: absolute;
+    margin: auto;
+    left: 0;right: 0;top: 0;bottom: 0;  
+}
+#bottomPanel{
+    position:fixed;
+    bottom:0.5%;
+    left:0;right:0;
+    margin: auto;
+    width: 50%;
+    height: 15%;
+}
+#arrowButtons{
+    position:absolute;
+    bottom: 0;top: 0;
+    left:0;right:0;
+    margin:auto;
+    width:100%;
+    height:100%;
+}
+#zoomControls{
+    position:fixed;
+    bottom:5%;
+    left:0;right:0;
+    margin: auto;
+    width: 6vw;
+    height: 4vw;
+    z-index: 999;
+}
+.controlIcon{
+    float: left;
+    width: 3vw;
+    height: 4vw;    
+    overflow: hidden;
+}
+#leftZoom{
+    float: left;
+    width:95%;
+    height:100%;
+    background-color: white;
+    border-bottom-left-radius: 3vw;
+    border-top-left-radius: 3vw;
+}
+.faviconStyle{
+    height: 50%;
+    padding-top: 20%;
+    width: auto;
+}
+#leftZoomFav{
+    position: absolute;
+    left: 10%;
+}
+#rightFull{
+    float: right;
+    width:95%;
+    height:100%;
+    background-color: white;
+    border-bottom-right-radius: 3vw;
+    border-top-right-radius: 3vw;
+}
+#rightFullFav{
+    position: absolute;
+    right: 10%;
+    z-index: 999;
+}
+
+.arrowSize{
+    width: 50%;
+    height: 50%;
+}
+#count{
+    position:fixed;
+    top:-4vw;
+    left:0;right:0;
+    margin:auto;
+    width:8vw;
+    height:8vw;
+    background-color: white;
+    border-radius:4vw;
+    text-align: center;
+    color:rgb(143, 151, 95);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 200;
+}
+#pageNumber{
+    position: absolute;
+    display: block;
+    margin: auto;
+    left: 0;right:0;
+    bottom: 1.5vw;
+}
+.backLoading{
+    position: absolute;
+    margin: auto;
+    display: block;
+    top: 0;right: 0;bottom: 0;left: 0;
+    height: 15%;
+    width: auto;
+}
+.backWhite{
+    background-color: white;
+}
+
+
+
+
+button {
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    outline:0;
+}
+
+svg {
+    padding: 5px;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -45px;
+    margin-left: -35px;
+    width: 70px;
+    height: 90px;
+}
+.left {
+    left: 30%;
+}
+
+.right {
+    left: 70%;
+}
+
+.left:hover polyline,
+.left:focus polyline {
+    stroke-width: 8;
+}
+
+.left:active polyline {
+    stroke-width: 10;
+    transition: all 100ms ease-in-out;
+}
+
+.right:hover polyline,
+.right:focus polyline {
+    stroke-width: 8;
+}
+
+.right:active polyline {
+    stroke-width: 8;
+    transition: all 100ms ease-in-out;
+}
+
+polyline {
+    transition: all 250ms ease-in-out;
+}
+
+#sidebar{
+    width: 30%;
+    height: 63%;
+    background-color: white;
+    display: block;
+    margin: auto;
+    position: absolute;
+    left:0;
+    top:0;bottom:0;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+#fullscreenLoading{
+    position: absolute;
+    margin: auto;
+    top: 0;bottom: 0;right: 0;left: 0;
+    height: 15%;
+    width: auto;
+}
+#fullscreenImage{
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;bottom: 0;right: 0;left: 0;
+}
+#imageholder{
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;bottom: 0;right: 0;left: 0;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}

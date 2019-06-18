@@ -1,0 +1,53 @@
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #count{
+        height: 20vw;
+        width: 20vw;
+        border-radius: 10vw;
+        top: -10vw;
+    }
+    h2{
+        font-size: 6.2vw;
+    }
+    .left {
+        left: 30%;
+    }
+    .right {
+        left: 70%;
+    }
+    #arrowButtons{
+        bottom: 3%;
+    }
+    .arrowSize{
+        width: 30%;
+        height: 30%;
+    }
+    #sidebar{
+        display: none;
+    }
+    #zoomControls{
+        width: 18vw;
+        height: 12vw;
+    }
+    .controlIcon{
+        width: 9vw;
+        height: 12vw;    
+    }
+    #leftZoom{
+        border-bottom-left-radius: 9vw;
+        border-top-left-radius: 9vw;
+    }
+    #rightFull{
+        border-bottom-right-radius: 9vw;
+        border-top-right-radius: 9vw;
+    }
+    #bottomPanel{
+        width: 100%;
+        height: 15%;
+        position:absolute;
+        bottom:0.5%;
+        left:0;right:0;
+        margin:auto;
+    }
+}
