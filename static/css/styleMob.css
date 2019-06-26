@@ -1,0 +1,28 @@
+@media only screen and (max-width: 768px) {
+    #landing_static{
+        display: none;
+    }
+    .sixth{
+        background-size: auto 100%;
+    }
+    .fifth{
+        background-size: auto 100%;
+    }
+    .fourth{
+        background-size: auto 80%;
+        background-position: 5% bottom;
+    }
+    .third{
+        background-size: auto 80%;
+        background-position: right bottom;
+    }
+    .ring{
+        background-size: 140% auto;
+    }
+    .logo_second{
+        background-size: 120% auto;
+    }
+    .logo_first{
+        background-size: 120% auto;
+    }
+}

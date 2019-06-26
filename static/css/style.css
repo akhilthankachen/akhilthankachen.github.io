@@ -1,0 +1,100 @@
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+}
+.center{
+    position: absolute;
+    left: 0;right: 0;bottom: 0;top: 0;
+    margin: auto;
+}
+.full{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.landing_div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.landing_img{
+    margin: auto;
+    position: absolute;
+    left:0;right:0;top:0;bottom:0;
+    width: 100%;
+    height: auto;
+}
+.landing_static_img{
+    background: url('../img/landing/static_tribe.png') no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+}
+.sixth{
+    width: 100%;
+    height: 100%;
+    background: url('../img/landing/sixth.png') no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+}
+.fifth{
+    width: 100%;
+    height: 100%;
+    background: url('../img/landing/fifth.png') no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+}
+.fourth{
+    width: 100%;
+    height: 100%;
+    background: url('../img/landing/fourth.png') no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+}
+.ring{
+    width: 100%;
+    height: 100%;
+    background: url('../img/landing/ring.png') no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+    -webkit-animation: rotation 13s infinite linear;
+    -moz-animation: rotation 13s infinite linear;
+    -o-animation: rotation 13s infinite linear;
+    animation: rotation 13s infinite linear;
+}
+.third{
+    width: 100%;
+    height: 100%;
+    background: url('../img/landing/third.png') no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+}
+.logo_second{
+    width: 100%;
+    height: 100%;
+    background: url('../img/landing/second.png') no-repeat;
+    background-size: 80% auto;
+    background-position: center center;
+}
+.logo_first{
+    width: 100%;
+    height: 100%;
+    background: url('../img/landing/first.png') no-repeat;
+    background-size: 80% auto;
+    background-position: center center;
+}
+#scene{
+    height: 100%;
+    width: 100%;
+}
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
