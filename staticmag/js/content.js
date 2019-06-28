@@ -133,7 +133,7 @@ function init(){
         "z-index":"99",
         "opacity":"1"
     });
-    $("#imgOne").attr('src','./static/img/pages/magazine18-1.jpg');
+    $("#imgOne").attr('src','./staticmag/img/pages/magazine18-1.jpg');
     var pageTwoWidth = ((pageHeight * .69) * 2480) / 3508;
     widthPageTwo = pageTwoWidth;
     $("#two").css({
@@ -169,8 +169,8 @@ function init(){
         "opacity":"0.4"
     });
     if(windowWidth == "full"){
-        $("#imgTwo").attr('src','./static/img/pages/magazine18-2.jpg');
-        $("#imgThree").attr('src','./static/img/pages/magazine18-3.jpg');
+        $("#imgTwo").attr('src','./staticmag/img/pages/magazine18-2.jpg');
+        $("#imgThree").attr('src','./staticmag/img/pages/magazine18-3.jpg');
     }else{
         $("#imgTwo").attr('src','');
         $("#imgThree").attr('src','');
@@ -322,7 +322,7 @@ function animateOneToFive(id,order,imgId,count,backLoading){
             imgId.css({"display":"block"});
             imgId.load(function (){
                 backLoading.css({"display":"none"});
-            }).attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+            }).attr('src','./staticmag/img/pages/magazine18-'+count+'.jpg');
         }
         id.css({"z-index":"33"});
 
@@ -346,7 +346,7 @@ function animateOneToFive(id,order,imgId,count,backLoading){
             imgId.css({"display":"block"});
             imgId.load(function (){
                 backLoading.css({"display":"none"});
-            }).attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+            }).attr('src','./staticmag/img/pages/magazine18-'+count+'.jpg');
         }
         id.css({"z-index":"33"});
     }
@@ -452,7 +452,7 @@ function clickLeftPrelim(){
 function windowSmallControl(imgIdEnter,backLoadingEnter,count,imgIdLeave,backLoadingLeave){
     imgIdEnter.load(function (){
         backLoadingEnter.css({"display":"none"});
-    }).attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+    }).attr('src','./staticmag/img/pages/magazine18-'+count+'.jpg');
     imgIdEnter.css({"display":"block"});
     
     imgIdLeave.css({"display":"none"});
@@ -706,8 +706,8 @@ function leftZoomFav_click(){
         setTimeout(function (){
             fullscreenImage.load(function (){
                 fullscreenLoading.css({"display":"none"});
-            }).attr('src','./static/img/pages/magazine18-'+pageCount+'.jpg');
-            leftZoomFav.attr('src','./static/img/zoomDown.png');
+            }).attr('src','./staticmag/img/pages/magazine18-'+pageCount+'.jpg');
+            leftZoomFav.attr('src','./staticmag/img/zoomDown.png');
         },animationSpeed+100);
         leftZoomToggle = true;
     }else{
@@ -719,7 +719,7 @@ function leftZoomFav_click(){
             fullscreenImage.load(function (){
                 fullscreenLoading.css({"display":"block"});
             }).attr('src','');
-            leftZoomFav.attr('src','./static/img/zoomUp.png');
+            leftZoomFav.attr('src','./staticmag/img/zoomUp.png');
         },animationSpeed+100);
         leftZoomToggle = false;
     }
@@ -739,7 +739,7 @@ function rightFullFav_click(){
         } else if (elem.msRequestFullscreen) { /* IE/Edge */
             elem.msRequestFullscreen();
         }
-        rightFullFav.attr('src','./static/img/minimize.png');
+        rightFullFav.attr('src','./staticmag/img/minimize.png');
         fullScreenToggle = true;
     }else{
         if (document.exitFullscreen) {
@@ -751,7 +751,7 @@ function rightFullFav_click(){
         } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
         } 
-        rightFullFav.attr('src','./static/img/fullscreen.png');
+        rightFullFav.attr('src','./staticmag/img/fullscreen.png');
         fullScreenToggle = false;
     }
 }
