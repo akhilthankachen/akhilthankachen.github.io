@@ -1,4 +1,7 @@
 @media only screen and (max-width: 768px) {
+    body{
+        background-size: auto 100%;
+    }
     #landing_static{
         display: none;
     }
@@ -10,7 +13,7 @@
     }
     .fourth{
         background-size: auto 80%;
-        background-position: 5% bottom;
+        background-position: 0% bottom;
     }
     .third{
         background-size: auto 80%;
