@@ -10,9 +10,14 @@ var gallery = $('#gallery_id');
 var aftermovie = $('#aftermovie_id');
 var landing = $('#landing_id');
 var eighteen = $('#eighteen_id');
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
 //hover event eighteen menu
-var animation_speed_18 = 300;
+if(width <= 768){
+    var animation_speed_18 = 100;  
+}else{
+    var animation_speed_18 = 300;
+}
 // mouse enter
 full_circle.mouseenter(function(){
     full_circle.css({
@@ -104,7 +109,7 @@ fill_left.click(function(){
             left: "0%"
         }, animation_speed_pages);
         landing.animate({
-            left: "-100%"
+            opacity: "0"
         }, animation_speed_pages);
         setTimeout(function(){
             eighteen.html("X");
@@ -118,7 +123,7 @@ fill_left.click(function(){
             right: "100%"
         }, animation_speed_pages);
         landing.css({
-            left: "-100%"
+            opacity: "0"
         });
         currentPage = "aftermovie"; 
     }
@@ -130,7 +135,7 @@ fill_right.click(function(){
             right: "0%"
         }, animation_speed_pages);
         landing.animate({
-            left: "100%"
+            opacity: "0"
         }, animation_speed_pages);
         setTimeout(function(){
             eighteen.html("X");
@@ -144,7 +149,7 @@ fill_right.click(function(){
             right: "0%"
         }, animation_speed_pages);
         landing.css({
-            left: "100%"
+            opacity: "0"
         });
         currentPage = "gallery";
     }
@@ -157,7 +162,7 @@ eighteen.click(function(){
                 left: "100%"
             }, animation_speed_pages);
             landing.animate({
-                left: "0%"
+                opacity: "1"
             }, animation_speed_pages);
             setTimeout(function(){
                 eighteen.html("18");
@@ -168,7 +173,7 @@ eighteen.click(function(){
                 right: "100%"
             }, animation_speed_pages);
             landing.animate({
-                left: "0%"
+                opacity: "1"
             }, animation_speed_pages);
             setTimeout(function(){
                 eighteen.html("18");
@@ -178,4 +183,7 @@ eighteen.click(function(){
     currentPage = "landing";
 });
 
+
+/// simple light box gallery
+$('.galleryWrapper a').simpleLightbox();
 
