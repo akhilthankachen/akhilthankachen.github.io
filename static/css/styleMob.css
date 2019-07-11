@@ -1,5 +1,7 @@
 @media only screen and (max-width: 768px) {
     body{
+    }
+    .backgroundImg{
         background-size: auto 100%;
     }
     #landing_static{
@@ -27,5 +29,8 @@
     }
     .logo_first{
         background-size: 120% auto;
+    }
+    .galleryImg{
+        height: 15vh;
     }
 }
