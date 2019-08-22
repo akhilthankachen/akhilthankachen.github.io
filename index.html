@@ -55,17 +55,28 @@
         animation: blink 1.5s infinite linear;
     }
     </style>
-    <script>
-        window.onload = function (){
-          $("#loading").animate({"opacity":"0"},800);
-          setTimeout(()=>{
-              $("#loading").css({"display":"none"});
-          },800);
+  <script>
+      window.onload = function (){
+        $("#loading").animate({"opacity":"0"},800);
+        setTimeout(()=>{
+            $("#loading").css({"display":"none"});
+        },800);
+        var song = document.getElementsByTagName('audio')[0];
+        if (song.paused)
+          song.play();
+        else
+          song.pause();
       };
     </script>
   </head>
 
 	<body>
+    <div id="player">
+        <audio hidden id="audioPlayer">
+          <source src="./static/music/bgm.ogg" type="audio/ogg">
+                    If you're reading this, audio isn't supported. 
+        </audio>
+    </div>
 
     <div id="loading">
         <img src="./static/img/landing/soul_logo.png" id="loadingGif">
