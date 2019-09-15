@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="./static/js/simple-lightbox.min.js" type="text/javascript"></script>
+    <script src="https://js.instamojo.com/v1/checkout.js"></script>
     <link rel="stylesheet" type="text/css" href="./static/css/simplelightbox.min.css">
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
     <link rel="stylesheet" type="text/css" href="./static/css/styleMob.css">
@@ -83,6 +84,20 @@
         }
 
       };
+      Instamojo.configure({
+        handlers: {
+          onOpen: function() {},
+          onClose: function() {
+            document.location.reload(true);
+            console.log("refresh")
+          },
+          onSuccess: function(response) {},
+          onFailure: function(response) {}
+      }});
+
+      function onTicketClick(){
+        Instamojo.open("https://www.instamojo.com/@BLOOMINGREEN_19/lbe8112795a4c4b9cbd163155999d1ab1");
+      }
     </script>
   </head>
 
@@ -126,6 +141,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="ticket" id="ticket_id">
+      <h2 class="early" onClick="onTicketClick()">Early Bird Ticket</h2>
     </div>
 
     <div class="gallery" id="gallery_id">

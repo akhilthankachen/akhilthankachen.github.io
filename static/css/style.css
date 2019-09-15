@@ -310,3 +310,23 @@ body{
     height: 30vh;
     width: auto;
 }
+
+.ticket{
+    position: fixed;
+    display: block;
+    margin: 0 auto;
+    bottom: 16%;
+    left:0;right: 0;
+    width: 20%;
+    height: 50px;
+    z-index: 5;
+    text-align: center;
+}
+.early{
+    font-size: 3vh;
+    color: white;
+    text-decoration: underline;
+}
+.ticket:hover{
+    cursor: pointer;
+}
