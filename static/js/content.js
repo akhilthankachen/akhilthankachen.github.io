@@ -11,178 +11,130 @@ var aftermovie = $('#aftermovie_id');
 var landing = $('#landing_id');
 var eighteen = $('#eighteen_id');
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+var menu = $('#second_menu');
+var animator = $('#animator');
+var menu_icon = $('#menu_icon');
+var menu_content = $('#menu_content');
+var menu_home = $('#menu_home');
+var menu_gallery = $('#menu_gallery');
+var menu_aftermovie = $('#menu_aftermovie');
 
-//hover event eighteen menu
-if(width <= 768){
-    var animation_speed_18 = 100;  
-}else{
-    var animation_speed_18 = 300;
-}
-// mouse enter
-full_circle.mouseenter(function(){
-    full_circle.css({
-        "background-color": "white"
-    });
-    fill_left.animate({
+menu_content.css({
+    'display': 'none'
+});
+menu_icon.attr('src','./static/img/menu.png');
+
+
+//mouse enter menu
+var animation_speed_animator = 150;
+menu.mouseenter(function(){
+    animator.animate({
+        left: "-2vh",
+        width: "13vh",
+        height: "13vh"
+    }, animation_speed_animator);
+});
+menu.mouseleave(function(){
+    animator.animate({
         left: "0vh",
-    },animation_speed_18);
-    fill_right.animate({
-        right: "0vh",
-    },animation_speed_18);
+        width: "9vh",
+        height: "9vh"
+    }, animation_speed_animator);
 });
-// mouse leave
-menu_circle.mouseleave(function(){
-
-    setTimeout(function(){
-        full_circle.css({
-            "background-color": "rgba(255, 255, 255, 0.719)"
-        });
-    }, animation_speed_18);
-
-    fill_left.animate({
-        left: "25vh",
-    },animation_speed_18);
-    fill_right.animate({
-        right: "25vh",
-    },animation_speed_18);
-});
-// mouse enter and leave fill_left
-fill_left.mouseenter(function(){
-    fill_left.css({
-        "background-color": '#133f1def'
-    });
-    aftermovie_icon.css({
-        "background": "url(./static/img/aftermovie_white.png) no-repeat",
-        "background-size": "100% 100%"
-    });
-    aftermovie_text.css({
-        "color": "white"
-    });
-});
-fill_left.mouseleave(function(){
-    fill_left.css({
-        "background-color": 'white'
-    });
-    aftermovie_icon.css({
-        "background": "url(./static/img/aftermovie_green.png) no-repeat",
-        "background-size": "100% 100%"
-    });
-    aftermovie_text.css({
-        "color": "#133f1def"
-    });
-});
-// mouse enter and leave fill_right
-fill_right.mouseenter(function(){
-    fill_right.css({
-        "background-color": '#133f1def'
-    });
-    gallery_icon.css({
-        "background": "url(./static/img/gallery_white.png) no-repeat",
-        "background-size": "100% 100%"
-    });
-    gallery_text.css({
-        "color": "white"
-    });
-});
-fill_right.mouseleave(function(){
-    fill_right.css({
-        "background-color": 'white'
-    });
-    gallery_icon.css({
-        "background": "url(./static/img/gallery_green.png) no-repeat",
-        "background-size": "100% 100%"
-    });
-    gallery_text.css({
-        "color": "#133f1def"
-    });
-});
-
-
-// mouse click after movie
-var currentPage = "landing";
-var animation_speed_pages = 600;
-var animation_speed_pages_double = 1200;
-
-fill_left.click(function(){
-    if(currentPage == "landing"){
-        aftermovie.animate({
-            left: "0%"
-        }, animation_speed_pages);
-        landing.animate({
-            opacity: "0"
-        }, animation_speed_pages);
-        setTimeout(function(){
-            eighteen.html("X");
-        }, animation_speed_pages);
-        currentPage = "aftermovie"; 
-    }else if(currentPage == "gallery"){
-        aftermovie.animate({
-            left: "0%"
-        }, animation_speed_pages);
-        gallery.animate({
-            right: "100%"
-        }, animation_speed_pages);
-        landing.css({
-            opacity: "0"
-        });
-        currentPage = "aftermovie"; 
-    }
-});
-//mouse click gallery
-fill_right.click(function(){
-    if(currentPage == "landing"){
-        gallery.animate({
-            right: "0%"
-        }, animation_speed_pages);
-        landing.animate({
-            opacity: "0"
-        }, animation_speed_pages);
-        setTimeout(function(){
-            eighteen.html("X");
-        }, animation_speed_pages);
-        currentPage = "gallery";
-    }else if(currentPage == "aftermovie"){
-        aftermovie.animate({
-            left: "100%"
-        }, animation_speed_pages);
-        gallery.animate({
-            right: "0%"
-        }, animation_speed_pages);
-        landing.css({
-            opacity: "0"
-        });
-        currentPage = "gallery";
-    }
-});
-// mouse click eighteen
-eighteen.click(function(){
-    if(currentPage != "landing"){
-        if(currentPage == "aftermovie"){
-            aftermovie.animate({
-                left: "100%"
-            }, animation_speed_pages);
-            landing.animate({
-                opacity: "1"
-            }, animation_speed_pages);
-            setTimeout(function(){
-                eighteen.html("18");
-            }, animation_speed_pages);
+//menu click
+var menu_state = false;
+menu_icon.click(function(){
+    if(menu_state == false){
+        if(window.innerHeight>window.innerWidth){
+            animator.animate({
+                width: window.innerHeight*3,
+                height: window.innerHeight*3,
+                left: -window.innerWidth/.5
+            }, 200);
+        }else{
+            animator.animate({
+                width: window.innerWidth*3,
+                height: window.innerWidth*3,
+                left: -window.innerWidth/.9
+            }, 200);
         }
-        if(currentPage == "gallery"){
-            gallery.animate({
-                right: "100%"
-            }, animation_speed_pages);
-            landing.animate({
-                opacity: "1"
-            }, animation_speed_pages);
-            setTimeout(function(){
-                eighteen.html("18");
-            }, animation_speed_pages);
+        setTimeout(function(){         
+            landing.css({
+                "display":"none"
+            });
+            gallery.css({
+                "display":"none"
+            });
+            aftermovie.css({
+                "display":"none"
+            });
+            menu_content.css({
+                "display":"block"
+            });
+        }, 200);
+        animator.animate({
+            opacity: 0
+        }, 600);
+        menu_icon.attr('src','./static/img/close.png');
+        animator.animate({
+            opacity: 1,
+            left: "0vh",
+            width: "9vh",
+            height: "9vh"
+        }, 0);
+        menu_state = true;
+    }else if(menu_state == true){
+        if(window.innerHeight>window.innerWidth){
+            animator.animate({
+                width: window.innerHeight*3,
+                height: window.innerHeight*3,
+                left: -window.innerWidth/.5
+            }, 200);
+        }else{
+            animator.animate({
+                width: window.innerWidth*3,
+                height: window.innerWidth*3,
+                left: -window.innerWidth/.9
+            }, 200);
         }
+        setTimeout(function(){
+            landing.css({
+                "display":"block"
+            });
+            gallery.css({
+                "display":"block"
+            });
+            aftermovie.css({
+                "display":"block"
+            });
+            menu_content.css({
+                "display":"none"
+            });
+        }, 200);
+        animator.animate({
+            opacity: 0
+        }, 600);
+        animator.animate({
+            opacity: 1,
+            left: "0vh",
+            width: "9vh",
+            height: "9vh"
+        }, 0); 
+        menu_icon.attr('src','./static/img/menu.png');
+        menu_state = false;      
     }
-    currentPage = "landing";
 });
 
+//mouse click on menu content
+menu_home.click(function(){
+    window.location.href = 'https://bloomingreenfestival.com'
+});
+menu_gallery.click(function(){
+    window.location.href = 'https://bloomingreenfestival.com/gallery'
+});
+menu_aftermovie.click(function(){
+    window.location.href = 'https://bloomingreenfestival.com/aftermovie'
+});
 
 /// simple light box gallery
 $('.galleryWrapper a').simpleLightbox();
