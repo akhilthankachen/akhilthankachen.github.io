@@ -120,7 +120,7 @@ menu_icon.click(function(){
             width: "9vh",
             height: "9vh"
         }, 0); 
-        menu_icon.attr('src','./static/img/menu.png');
+        menu_icon.attr('src','./static/img/menu_2.png');
         menu_state = false;      
     }
 });
