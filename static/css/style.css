@@ -273,7 +273,13 @@ body{
 .early{
     font-size: 3vh;
     color: white;
-    text-decoration: underline;
+    border: thin solid #ffffff;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.early:hover{
+    background: #ffffff;
+    color: #000000;
 }
 .ticket:hover{
     cursor: pointer;
