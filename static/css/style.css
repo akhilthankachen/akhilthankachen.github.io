@@ -220,11 +220,50 @@ body{
     width: auto;
 }
 
+.date-venue{
+    position: fixed;
+    display: block;
+    margin: 0 auto;
+    bottom: 25%;
+    left:0;right: 0;
+    width: 20%;
+    height: 100px;
+    z-index: 5;
+    text-align: center;
+}
+
+.date-venue h3{
+    margin-bottom: 6px;
+    margin-top: 6px;
+    font-weight:normal;
+}
+
+.date-venue p{
+    margin-top:3px;
+}
+
+.about{
+    position: fixed;
+    display: block;
+    margin: 0 auto;
+    top: 18%;
+    left:0;
+    right: 0;
+    width:65%;
+    height: auto;
+    z-index: 5;
+}
+
+.aboutWrapper{      
+    padding:5%; 
+    background: rgba(255,255,255,0.3);  
+}
+
 .ticket{
     position: fixed;
     display: block;
     margin: 0 auto;
-    bottom: 16%;
+    bottom: 12%;
     left:0;right: 0;
     width: 20%;
     height: 50px;
