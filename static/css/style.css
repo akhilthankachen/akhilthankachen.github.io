@@ -232,10 +232,9 @@ body{
     text-align: center;
 }
 
-.date-venue h3{
+.date-venue h2,.date-venue h4{
     margin-bottom: 6px;
-    margin-top: 6px;
-    font-weight:normal;
+    margin-top: 6px;    
 }
 
 .date-venue p{
@@ -282,7 +281,7 @@ body{
     color: #000000;
 }
 .ticket:hover{
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .menu_wrapper_wrapper{
