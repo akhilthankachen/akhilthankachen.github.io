@@ -9,6 +9,8 @@ var gallery_text = $('#gallery_text_h1_id');
 var gallery = $('#gallery_id');
 var aftermovie = $('#aftermovie_id');
 var landing = $('#landing_id');
+var datevenue = $('#about_id');
+var about = $('#dv_id');
 var eighteen = $('#eighteen_id');
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var menu = $('#second_menu');
@@ -16,6 +18,7 @@ var animator = $('#animator');
 var menu_icon = $('#menu_icon');
 var menu_content = $('#menu_content');
 var menu_home = $('#menu_home');
+var menu_about = $('#menu_about');
 var menu_gallery = $('#menu_gallery');
 var menu_aftermovie = $('#menu_aftermovie');
 
@@ -68,6 +71,12 @@ menu_icon.click(function(){
             aftermovie.css({
                 "display":"none"
             });
+            datevenue.css({
+                "display":"none"
+            });
+            about.css({
+                "display":"none"
+            });
             menu_content.css({
                 "display":"block"
             });
@@ -107,6 +116,12 @@ menu_icon.click(function(){
             aftermovie.css({
                 "display":"block"
             });
+            datevenue.css({
+                "display":"block"
+            });
+            about.css({
+                "display":"block"
+            });
             menu_content.css({
                 "display":"none"
             });
@@ -128,6 +143,9 @@ menu_icon.click(function(){
 //mouse click on menu content
 menu_home.click(function(){
     window.location.href = 'https://bloomingreenfestival.com'
+});
+menu_about.click(function(){
+    window.location.href= 'https://bloomingreenfestival.com/about'
 });
 menu_gallery.click(function(){
     window.location.href = 'https://bloomingreenfestival.com/gallery'
