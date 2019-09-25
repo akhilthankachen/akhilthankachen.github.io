@@ -145,7 +145,7 @@ menu_home.click(function(){
     window.location.href = 'https://bloomingreenfestival.com'
 });
 menu_about.click(function(){
-    window.location.href= 'https://bloomingreenfestival.com/about'
+    window.location.href= 'https://bloomingreenfestival.com/about.html'
 });
 menu_gallery.click(function(){
     window.location.href = 'https://bloomingreenfestival.com/gallery'
