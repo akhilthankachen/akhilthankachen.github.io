@@ -8,6 +8,7 @@
 		<title>Bloom In Green Festival 2019</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="./static/js/simple-lightbox.min.js" type="text/javascript"></script>
+   <script src="https://js.instamojo.com/v1/checkout.js"></script>
     <link rel="stylesheet" type="text/css" href="./static/css/simplelightbox.min.css">
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
     <link rel="stylesheet" type="text/css" href="./static/css/styleMob.css">
@@ -66,6 +67,23 @@
             $("#loading").css({"display":"none"});
         },800);
       };
+	  
+	  
+	  
+	Instamojo.configure({
+        handlers: {
+          onOpen: function() {},
+          onClose: function() {
+            document.location.reload(true);
+            console.log("refresh")
+          },
+          onSuccess: function(response) {},
+          onFailure: function(response) {}
+      }});
+      function onTicketClick(){
+       // Instamojo.open("https://www.instamojo.com/BLOOMINGREEN_19/bloom-in-green-festival/");
+	       window.location.href = 'https://bloomingreenfestival.com/tickets';
+      }
     </script>
   </head>
 
@@ -110,17 +128,14 @@
     <div class="about" id="about_id">
         <div class="aboutWrapper">
             <h3>
-                    About Bloom in Green Festival :
+                   Festival Tickets
             </h3>
-            <p>                    
-                    Bloom in Green Festival, India's first ever outdoor transformational festival, is an eclectic mix of art, music and culture. The event will feature various art and sustainability-related workshops, on-site art projects, symposiums on ecology and sustainable living and live music. This 3- days camping festival is a value system that celebrates life, personal growth, healthy living and creative expressions.
-            </p>
-            <p>
-                    <strong>Company Details : </strong> <br/>
-                    Karloom Entertainments Pvt Ltd<br/>
-                    Sarjapur road<br/>
-                    Bangalore, 560035<br/>
-            </p>
+		<p>
+		 Inclusions: Full festival access + tent stay (sleeping bags + mattress))
+		</p>
+		<div class="ticket" id="ticket_id">
+		      <h2 class="early" onclick="onTicketClick()">Buy Now</h2>
+		    </div>
         </div>
     </div>
 
