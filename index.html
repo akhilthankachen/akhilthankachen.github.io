@@ -57,17 +57,17 @@
     }
     </style>
   <script>
-      window.onload = function (){
+    /*  window.onload = function (){
         var context = new AudioContext();
         context.resume().then(() => {
           console.log('Playback resumed successfully');
-        });
+        });*/
 
         $("#loading").animate({"opacity":"0"},800);
         setTimeout(()=>{
             $("#loading").css({"display":"none"});
         },800);
-        var song = document.getElementsByTagName('audio')[0];
+      /*  var song = document.getElementsByTagName('audio')[0];
         if (song.paused)
           playPromise = song.play();
         else
@@ -83,7 +83,7 @@
           });
         }
 
-      };
+      };*/
       Instamojo.configure({
         handlers: {
           onOpen: function() {},
