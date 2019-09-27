@@ -42,12 +42,13 @@ body{
 .backgroundImg{
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
+    top: 0;
     margin: 0;
     display: block;
     z-index: 0;
     background: url('../img/landing_new/sixth.jpg') no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     background-position: center center;
     overflow: hidden;
 }
@@ -242,7 +243,7 @@ body{
 }
 
 .about{
-    position: fixed;
+    position: relative;
     display: block;
     margin: 0 auto;
     top: 18%;
@@ -255,7 +256,8 @@ body{
 
 .aboutWrapper{      
     padding:5%; 
-    background: rgba(255,255,255,0.3);  
+    background: rgba(255,255,255,0.3);
+    height: 100%;
 }
 
 .ticket{
