@@ -235,11 +235,13 @@ body{
 
 .date-venue h2,.date-venue h4{
     margin-bottom: 6px;
-    margin-top: 6px;    
+    margin-top: 6px;
+    color: #253d1a;
 }
 
 .date-venue p{
     margin-top:3px;
+    color: #253d1a;
 }
 
 .about{
