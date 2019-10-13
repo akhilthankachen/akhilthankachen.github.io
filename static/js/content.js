@@ -16,6 +16,8 @@ var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var menu = $('#second_menu');
 var animator = $('#animator');
 var contact = $('#contact_id');
+var workshop = $('#workshop_id');
+var band = $('#band_id');
 var menu_icon = $('#menu_icon');
 var menu_content = $('#menu_content');
 var menu_home = $('#menu_home');
@@ -23,6 +25,8 @@ var menu_about = $('#menu_about');
 var menu_gallery = $('#menu_gallery');
 var menu_aftermovie = $('#menu_aftermovie');
 var menu_contact = $('#menu_contact');
+var menu_workshop = $('#menu_workshop');
+var menu_band = $('#menu_band');
 
 menu_content.css({
     'display': 'none'
@@ -82,6 +86,12 @@ menu_icon.click(function(){
             contact.css({
                 "display":"none"
             });
+            workshop.css({
+                "display":"none"
+            });
+            band.css({
+                "display":"none"
+            });
             menu_content.css({
                 "display":"block"
             });
@@ -130,6 +140,12 @@ menu_icon.click(function(){
             contact.css({
                 "display":"block"
             });
+            workshop.css({
+                "display":"block"
+            });
+            band.css({
+                "display":"block"
+            });
             menu_content.css({
                 "display":"none"
             });
@@ -163,6 +179,12 @@ menu_aftermovie.click(function(){
 });
 menu_contact.click(function(){
     window.location.href = 'https://bloomingreenfestival.com/contact'
+});
+menu_workshop.click(function(){
+    window.location.href = 'https://bloomingreenfestival.com/workshop'
+});
+menu_band.click(function(){
+    window.location.href = 'https://bloomingreenfestival.com/band'
 });
 
 /// simple light box gallery
