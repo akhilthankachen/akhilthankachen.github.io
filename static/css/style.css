@@ -30,6 +30,15 @@ input[type="text"], textarea, [contenteditable]
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rakkas&display=swap');
 
+@font-face {
+  font-family: "BeautifulRosesRegular";
+
+  src: url("../fonts/BeautifulRosesRegular.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/BeautifulRosesRegular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -361,7 +370,7 @@ body{
     margin: 3vh auto;
     display: block;
     font-size: 200%;
-    font-family: 'Rakkas', cursive;
+    font-family: 'BeautifulRosesRegular', cursive;
     font-weight: 800;
 }
 .menu_element:hover{
