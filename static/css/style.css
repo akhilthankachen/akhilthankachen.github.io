@@ -386,7 +386,7 @@ a.insta_btn {
     margin-right: 12px;
     height: 40px;    
     display: inline-block;
-    padding: 12px 24px;
+    padding: 6px 24px;
     margin-bottom: 20px;
     border: thin solid #253d1a;
     color: #253d1a;
@@ -395,7 +395,7 @@ a.insta_btn {
 a.fb_btn {    
     height: 40px;    
     display: inline-block;
-    padding: 12px 24px;
+    padding: 6px 24px;
     margin-bottom: 20px;
     border: thin solid #253d1a;
     color: #253d1a;
