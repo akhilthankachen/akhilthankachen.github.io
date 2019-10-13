@@ -385,16 +385,17 @@ body{
 a.insta_btn {
     margin-right: 12px;
     height: 40px;    
-    padding: 6px 24px;
+    display: inline-block;
+    padding: 12px 24px;
     margin-bottom: 20px;
     border: thin solid #253d1a;
     color: #253d1a;
 }
 
-a.fb_btn {
-    margin-right: 12px;
+a.fb_btn {    
     height: 40px;    
-    padding: 6px 24px;
+    display: inline-block;
+    padding: 12px 24px;
     margin-bottom: 20px;
     border: thin solid #253d1a;
     color: #253d1a;
@@ -405,4 +406,12 @@ a.insta_btn img, a.fb_btn img {
     position: relative;
     top: 6px;
     left: 6px;
+}
+
+@media screen and (max-width:768px){
+ 
+    a.insta_btn, a.fb_btn {               
+        display: block;        
+    }
+    
 }
