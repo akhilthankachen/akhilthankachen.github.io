@@ -375,3 +375,34 @@ body{
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* Contact Page */
+
+.contact_wrapper p {
+    line-height: 2;
+}
+
+a.insta_btn {
+    margin-right: 12px;
+    height: 40px;    
+    padding: 6px 24px;
+    margin-bottom: 20px;
+    border: thin solid #253d1a;
+    color: #253d1a;
+}
+
+a.fb_btn {
+    margin-right: 12px;
+    height: 40px;    
+    padding: 6px 24px;
+    margin-bottom: 20px;
+    border: thin solid #253d1a;
+    color: #253d1a;
+}
+
+a.insta_btn img, a.fb_btn img {
+    width: 24px;
+    position: relative;
+    top: 6px;
+    left: 6px;
+}
