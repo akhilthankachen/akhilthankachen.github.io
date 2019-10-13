@@ -15,12 +15,14 @@ var eighteen = $('#eighteen_id');
 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 var menu = $('#second_menu');
 var animator = $('#animator');
+var contact = $('#contact_id');
 var menu_icon = $('#menu_icon');
 var menu_content = $('#menu_content');
 var menu_home = $('#menu_home');
 var menu_about = $('#menu_about');
 var menu_gallery = $('#menu_gallery');
 var menu_aftermovie = $('#menu_aftermovie');
+var menu_contact = $('#menu_contact');
 
 menu_content.css({
     'display': 'none'
@@ -77,6 +79,9 @@ menu_icon.click(function(){
             about.css({
                 "display":"none"
             });
+            contact.css({
+                "display":"none"
+            });
             menu_content.css({
                 "display":"block"
             });
@@ -122,6 +127,9 @@ menu_icon.click(function(){
             about.css({
                 "display":"block"
             });
+            contact.css({
+                "display":"block"
+            });
             menu_content.css({
                 "display":"none"
             });
@@ -152,6 +160,9 @@ menu_gallery.click(function(){
 });
 menu_aftermovie.click(function(){
     window.location.href = 'https://bloomingreenfestival.com/aftermovie'
+});
+menu_contact.click(function(){
+    window.location.href = 'https://bloomingreenfestival.com/contact'
 });
 
 /// simple light box gallery
