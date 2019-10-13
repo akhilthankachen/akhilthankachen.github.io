@@ -219,11 +219,9 @@ body{
     z-index: 1;
     overflow-y: scroll;
 }
-
-
 .galleryWrapper{
-    width: 90%;
-    top: 10vh;
+    width: 85%;
+    top: 20vh;
 }
 .galleryImg{
     height: 30vh;
