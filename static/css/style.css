@@ -470,7 +470,8 @@ a.insta_btn img, a.fb_btn img {
 }
 
 .workshopWrapper .content{
-    display:none;   
+    height:0;
+    transition: width linear 1s;
 }
 
 @media screen and (max-width:768px){
