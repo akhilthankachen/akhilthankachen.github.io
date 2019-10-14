@@ -27,6 +27,8 @@ var menu_aftermovie = $('#menu_aftermovie');
 var menu_contact = $('#menu_contact');
 var menu_workshop = $('#menu_workshop');
 var menu_band = $('#menu_band');
+var workshop_title = $('.workshopWrapper .title');
+var workshop_content = $('.workshopWrapper .content');
 
 menu_content.css({
     'display': 'none'
@@ -189,4 +191,10 @@ menu_band.click(function(){
 
 /// simple light box gallery
 $('.galleryWrapper a').simpleLightbox();
+
+/// Workshop Animations
+
+workshop_title.hover(function(){
+    workshop_content.css({"display":"block"});
+}); 
 
