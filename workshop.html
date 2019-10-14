@@ -214,14 +214,14 @@
 
   <script src="./static/js/content.js" type="text/javascript"></script>
   <script>
-	$('.title').click(function(){
-	    $('.content').css("display","block").fadeIn(300);
-	    $('.title').css("display","none").fadeOut(300);
-	});
-	$('.content').click(function(){
+	$('.title').click(setTimeout(function(){
+	    $('.content').css("display","block");
+	    $('.title').css("display","none");
+	},2000));
+	$('.content').click(setTimeout(function(){
 	    $('.title').css("display","block");
 	    $('.content').css("display","none");
-	});
+	},2000));
   </script>
   </body>
 </html> 
