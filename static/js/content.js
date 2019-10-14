@@ -195,6 +195,6 @@ $('.galleryWrapper a').simpleLightbox();
 /// Workshop Animations
 
 workshop_title.hover(function(){
-    workshop_content.css({"display":"block"});
+    workshop_content.css({"display","block"});
 }); 
 
