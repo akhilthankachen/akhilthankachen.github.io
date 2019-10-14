@@ -451,27 +451,26 @@ a.insta_btn img, a.fb_btn img {
 }
 
 .workshopWrapper .item {
-    width: 42%;
+    width: 45%;
     display: inline-grid;
-    background: rgba(255,255,255,0.3);
-    padding: 12px;
+    background: rgba(255,255,255,0.3);    
     margin-bottom: 12px;
     margin-right: 12px;    
-    border: 3px solid rgba(0,0,0,0.2);
 }
 
 .workshopWrapper .item:hover {
     background: rgb(159, 134, 94, 0.6);    
 }
 
-.workshopWrapper .title{
-    margin:-12px;
+.workshopWrapper .title{    
     height: 200px;
 }
 
 .workshopWrapper .content{
-    height:0;
-    overflow: hidden;
+    padding: 12px;
+    border-left: 3px solid rgba(0,0,0,0.2);
+    border-right: 3px solid rgba(0,0,0,0.2);
+    border-bottom: 3px solid rgba(0,0,0,0.2);
 }
 
 @media screen and (max-width:768px){
