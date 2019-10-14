@@ -214,14 +214,11 @@
 
   <script src="./static/js/content.js" type="text/javascript"></script>
   <script>
-	$('.title').click(function(){
-	    $('.content').css("display","block");
-	    $('.title').css("display","none");
-	});
-	$('.content').click(function(){
-	    $('.title').css("display","block");
-	    $('.content').css("display","none");
-	});
+	$('.title').hover(function(){
+	    $('.content').css("height","auto");	    
+	}, function(){	    
+	    $('.content').css("height","0");
+	});	
   </script>
   </body>
 </html> 
