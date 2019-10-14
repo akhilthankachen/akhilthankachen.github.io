@@ -457,12 +457,20 @@ a.insta_btn img, a.fb_btn img {
     padding: 12px;
     margin-bottom: 12px;
     margin-right: 12px;    
-    border: 3px dashed rgba(0,0,0,0.2);
+    border: 3px solid rgba(0,0,0,0.2);
 }
 
 .workshopWrapper .item:hover {
-    background: rgb(159, 134, 94, 0.6);
-    border: 3px solid rgba(0,0,0,0.2);
+    background: rgb(159, 134, 94, 0.6);    
+}
+
+.workshopWrapper .title{
+    margin:-12px;
+    height: 200px;
+}
+
+.workshopWrapper .content{
+    display:none;   
 }
 
 @media screen and (max-width:768px){
