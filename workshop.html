@@ -215,8 +215,8 @@
   <script src="./static/js/content.js" type="text/javascript"></script>
   <script>
 	$('.title').click(function(){
-	    $('.content').css("display","block");
-	    $('.title').css("display","none");
+	    $('.content').css("display","block").fadeIn(300);
+	    $('.title').css("display","none").fadeOut(300);
 	});
 	$('.content').click(function(){
 	    $('.title').css("display","block");
