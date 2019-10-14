@@ -378,6 +378,18 @@ body{
 
 /* Contact Page */
 
+.contact{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    top: 18%;
+    left:0;
+    right: 0;
+    width:65%;
+    height: auto;
+    z-index: 5;   
+}
+
 .contact_wrapper p {
     line-height: 2;
 }
@@ -414,4 +426,32 @@ a.insta_btn img, a.fb_btn img {
         display: block;        
     }
     
+}
+
+/* Workshop Page */ 
+
+.workshop{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    top: 18%;
+    left:0;
+    right: 0;
+    width:65%;
+    height: auto;
+    z-index: 5;
+}
+
+/* Band Page */
+
+.band{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    top: 18%;
+    left:0;
+    right: 0;
+    width:65%;
+    height: auto;
+    z-index: 5;   
 }
