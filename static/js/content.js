@@ -196,5 +196,6 @@ $('.galleryWrapper a').simpleLightbox();
 
 workshop_title.hover(function(){
     workshop_content.css({"display","block"});
+    console.log('working');
 }); 
 
