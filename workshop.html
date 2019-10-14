@@ -215,8 +215,8 @@
   <script src="./static/js/content.js" type="text/javascript"></script>
   <script>
 	$('.title').click(function(){
-	    setTimeout($('.content').css("display","block"),2000);
-	    setTimeout($('.title').css("display","none"),2000);
+	    $('.content').css("display","block");
+	    $('.title').css("display","none");
 	});
 	$('.content').click(function(){
 	    $('.title').css("display","block");
