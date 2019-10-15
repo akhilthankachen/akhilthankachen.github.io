@@ -473,9 +473,29 @@ a.insta_btn img, a.fb_btn img {
     border-bottom: 3px solid rgba(0,0,0,0.2);
 }
 
+.title h3 {
+    height: 56%;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 30%;
+    font-size: 1.5em;
+    background: rgba(139, 101, 58, 0.3);
+    color: #ffffff;
+    font-family: 'BeautifulRosesRegular';
+}
+
+.content p {
+    font-family: 'Muli', sans-serif;
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
 @media screen and (max-width:768px){
     .workshopWrapper .item{
         width: 90%;   
+    }
+    .title h3{
+        padding-top: 40%;   
     }
 }
 
