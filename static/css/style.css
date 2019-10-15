@@ -517,3 +517,23 @@ a.insta_btn img, a.fb_btn img {
     background: rgba(255,255,255,0.3);
     height: 100%;
 }
+
+.banditem{
+    display: block;
+    height: 240px;
+    width: auto;
+    border: 5px solid transparent;
+    margin-bottom: 20px;
+}
+
+.banditem:hover {
+    border: 5px solid #ffffff;
+}
+
+.banditem h2 {
+    padding-top: 15%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 2em;
+    font-family: 'BeautifulRosesRegular';
+}
