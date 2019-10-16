@@ -518,9 +518,14 @@ a.insta_btn img, a.fb_btn img {
     height: 100%;
 }
 
+.bandWrapper h2 {
+    font-family: 'BeautifulRosesRegular';
+    font-size: 2.5em;
+}
+
 .banditem{
     display: block;
-    height: 240px;
+    height: 320px;
     width: auto;
     border: 5px solid transparent;
     margin-bottom: 20px;
@@ -531,9 +536,15 @@ a.insta_btn img, a.fb_btn img {
 }
 
 .banditem h2 {
-    padding-top: 12%;
+    margin-top: 18%;
     text-align: center;
     color: #ffffff;
-    font-size: 2em;
+    font-size: 3em;
     font-family: 'BeautifulRosesRegular';
+}
+
+@media screen and (min-width:768px){
+    .banditem h2{
+        margin-top: 37%;   
+    }
 }
