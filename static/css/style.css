@@ -543,7 +543,7 @@ a.insta_btn img, a.fb_btn img {
     font-family: 'BeautifulRosesRegular';
 }
 
-@media screen and (min-width:768px){
+@media screen and (max-width:768px){
     .banditem h2{
         margin-top: 37%;   
     }
