@@ -449,6 +449,11 @@ a.insta_btn img, a.fb_btn img {
     height: 100%;
 }
 
+.workshopWrapper h2 {
+    font-family: 'BeautifulRosesRegular';
+    font-size: 2.5em;
+}
+
 .workshopWrapper .item {
     width: 45%;
     display: inline-grid;
@@ -477,7 +482,7 @@ a.insta_btn img, a.fb_btn img {
     text-align: center;        
     font-size: 1.5em;
     line-height: 1.5;
-    background: rgba(139, 101, 58, 0.3);
+    background: rgba(0,0,0, 0.3);
     color: #ffffff;
     font-family: 'BeautifulRosesRegular';
 }
