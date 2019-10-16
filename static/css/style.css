@@ -495,11 +495,8 @@ a.insta_btn img, a.fb_btn img {
 
 @media screen and (max-width:768px){
     .workshopWrapper .item{
-        width: 90%;   
-    }
-    .title h3{
-        padding-top: 40%;   
-    }
+        width: 100%;   
+    }   
 }
 
 /* Band Page */
